@@ -3,8 +3,10 @@ import { Link } from 'react-router-dom';
 import { FaGoogle } from "react-icons/fa";
 import { InfoContext } from '../AuthProvider/AuthContext';
 import { GoogleAuthProvider } from 'firebase/auth';
+import toast from 'react-hot-toast';
 const Login = () => {
     const [error, setError] = useState('')
+    const [email, setEmail] = useState()
     const gProvider = new GoogleAuthProvider()
     const { signInWithEmail, forgetPass, googleSignIn } = useContext(InfoContext)
 
@@ -42,10 +44,24 @@ const Login = () => {
     const forget = (event) => {
 
 
+        const email = event.target.value
+        setEmail(email)
+
+
+    }
+
+
+    const sentResetMail = () => {
+
+
+        forgetPass(email)
+
+            .then(toast.success('reset mail has been sent to your mail address'))
 
 
 
     }
+
 
 
     const google = () => {
@@ -114,9 +130,9 @@ const Login = () => {
 
                             </div>
 
-                            <p><small>Are you new here? <Link to='/signup'><button className="btn btn-link btn-xs"><small>Register</small></button></Link> </small></p>
+                            <p><small>Are you new here? <Link to='/register'><button className="btn btn-link btn-xs"><small>Register</small></button></Link> </small></p>
 
-                            {/* <p> <button onClick={sentResetMail} className="btn btn-link btn-xs"><small>Forget password? Don't Worry Click Here </small></button></p> */}
+                            <p> <button onClick={sentResetMail} className="btn btn-link btn-xs"><small>Forget password? Don't Worry Click Here </small></button></p>
 
 
                         </div>
