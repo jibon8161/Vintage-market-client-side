@@ -1,12 +1,39 @@
-import React, { useState } from 'react';
+import React, { useContext, useState } from 'react';
 import { Link } from 'react-router-dom';
+import { InfoContext } from '../AuthProvider/AuthContext';
 
 const Register = () => {
 
     const [error, setError] = useState('')
 
-
+    const { createUser, updateProfileInfo } = useContext(InfoContext)
     const handleSignup = event => {
+        event.preventDefault()
+        const form = event.target
+        const name = form.name.value
+        const url = form.url.value
+        const select = form.select.value
+
+        const email = form.email.value
+        const password = form.pass.value
+        console.log(name, email, password, url, select)
+
+        createUser(email, password)
+            .then(result => {
+
+                const user = result.user;
+                console.log(user)
+
+
+            })
+            .catch(err => {
+
+                console.log(err)
+                setError(err.message)
+
+
+            })
+
 
 
 
@@ -20,7 +47,7 @@ const Register = () => {
         <div>
 
 
-                {/* // loader ? <div className="w-32 h-32 border-4 border-dashed rounded-full animate-spin mx-auto mt-32 mb-32 border-red-600"></div> : */}
+            {/* // loader ? <div className="w-32 h-32 border-4 border-dashed rounded-full animate-spin mx-auto mt-32 mb-32 border-red-600"></div> : */}
 
 
             <div className=''>
@@ -37,6 +64,16 @@ const Register = () => {
                                         <span className="label-text">Name</span>
                                     </label>
                                     <input type="text" placeholder="Full Name" name='name' className="input input-bordered shadow-inner  shadow-zinc-600 hover:bg-orange-200" required />
+                                </div>
+                                <div className="form-control">
+                                    <label className="label">
+                                        <span className="label-text">Select Role</span>
+                                    </label>
+                                    <select defaultValue={'user'} name='select' className="select select-bordered w-full max-w-xs">
+
+                                        <option>Seller</option>
+                                        <option value='user'>User</option>
+                                    </select>
                                 </div>
                                 <div className="form-control">
                                     <label className="label">

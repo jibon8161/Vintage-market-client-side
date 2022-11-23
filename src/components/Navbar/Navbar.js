@@ -1,8 +1,11 @@
-import { useState } from "react";
+import { useContext, useState } from "react";
 import { NavLink } from "react-router-dom";
+import { InfoContext } from "../AuthProvider/AuthContext";
 
 export const Nav = () => {
     const [isMenuOpen, setIsMenuOpen] = useState(false);
+
+    const { user } = useContext(InfoContext)
 
     return (
         <div className="bg-gradient-to-r from-purple-400 to-purple-700 shadow-2xl ">
@@ -32,6 +35,7 @@ export const Nav = () => {
                             </svg>
                             <span className="ml-2 text-xl font-bold tracking-wide text-black uppercase">
                                 VINTAGE RESALE MARKET
+                            
                             </span>
                         </NavLink>
                         <ul className="flex items-center  space-x-8 lg:flex">
