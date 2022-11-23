@@ -25,6 +25,7 @@ const Register = () => {
 
                 const user = result.user;
                 console.log(user)
+
                 updateProfileInfo(name, url)
                     .then(() => { })
                     .catch(error => {
@@ -33,7 +34,42 @@ const Register = () => {
 
                     })
 
-                    toast.success('User created  successfully')
+                toast.success('User created  successfully')
+
+
+                const currentUser = {
+
+                    email: user.email,
+                    role: select,
+                    name: name,
+                    profilepic: url,
+
+
+
+                }
+
+                fetch('http://localhost:5000/users', {
+
+
+                    method: "POST",
+                    headers: {
+
+                        'content-type': 'application/json'
+
+                    },
+                    body: JSON.stringify(currentUser)
+
+
+
+                })
+
+                    .then(res => res.json())
+                    .then(data => {
+                        console.log(data)
+
+                    })
+
+
 
             })
             .catch(err => {
