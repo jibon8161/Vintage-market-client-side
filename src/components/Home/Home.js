@@ -8,7 +8,24 @@ const Home = () => {
     const smart = () => {
 
 
-navigate('/smart')
+        navigate('/smart')
+
+
+
+    }
+    const folding = () => {
+
+
+        navigate('/folding')
+       
+
+
+
+    }
+    const basic = () => {
+
+
+        navigate('/basic')
 
 
 
@@ -77,7 +94,7 @@ navigate('/smart')
 
                             <h2 className="text-xl font-semibold tracking-wide">folding phones</h2>
                         </div>
-                        <button className="btn btn-outline btn-primary">Click Here</button>
+                        <button onClick={folding} className="btn btn-outline btn-primary">Click Here</button>
                     </div>
 
                     <div className="max-w-xs p-6 rounded-md  dark:bg-gray-900 dark:text-gray-50">
@@ -86,7 +103,7 @@ navigate('/smart')
 
                             <h2 className="text-xl font-semibold tracking-wide">Basic phones</h2>
                         </div>
-                        <button className="btn btn-outline btn-primary">Click Here</button>
+                        <button onClick={basic} className="btn btn-outline btn-primary">Click Here</button>
                     </div>
                 </div>
 
