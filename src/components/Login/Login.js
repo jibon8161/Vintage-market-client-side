@@ -1,17 +1,53 @@
-import React from 'react';
+import React, { useContext, useState } from 'react';
 import { Link } from 'react-router-dom';
-
+import { FaGoogle } from "react-icons/fa";
+import { InfoContext } from '../AuthProvider/AuthContext';
 const Login = () => {
+    const [error, setError] = useState('')
 
-const handleLogin=(event)=>{
+    const { signInWithEmail, forgetPass, googleSignIn } = useContext(InfoContext)
+
+    const handleLogin = (event) => {
+
+        event.preventDefault()
+        const form = event.target
+        const email = form.email.value
+        const password = form.pass.value
+        console.log(email, password)
+
+        signInWithEmail(email, password)
+            .then(result => {
+
+                const user = result.user;
+                console.log(user)
+
+
+
+            })
+            .catch(error => {
+
+
+                console.log(error)
+                setError(error.message)
+
+            })
+
+
+
+    }
+
+
+
+    const forget = (event) => {
 
 
 
 
 
+    }
 
 
-}
+    const google = () => { }
 
 
 
@@ -33,7 +69,7 @@ const handleLogin=(event)=>{
                                     <label className="label">
                                         <span className="label-text  text-purple-800 font-semibold">Email</span>
                                     </label>
-                                    {/* <input onBlur={forget} type="text" placeholder="email" name='email' className="input input-bordered shadow-inner  shadow-zinc-600 hover:bg-orange-200" /> */}
+                                    <input onBlur={forget} type="text" placeholder="email" name='email' className="input input-bordered shadow-inner  shadow-zinc-600 hover:bg-orange-200" />
                                 </div>
                                 <div className="form-control">
                                     <label className="label">
@@ -42,7 +78,7 @@ const handleLogin=(event)=>{
                                     <input type="password" placeholder="password" name='pass' className="input input-bordered shadow-inner shadow-zinc-600 hover:bg-orange-200" />
 
                                 </div>
-                                {/* <div className='text-red-600'><p><small>{error}</small></p></div> */}
+                                <div className='text-red-600'><p><small>{error}</small></p></div>
                                 <div className="form-control mt-6">
                                     <button className="btn btn-primary">Login</button>
                                 </div>
@@ -51,7 +87,7 @@ const handleLogin=(event)=>{
                             <div className="form-control mt-6 mx-auto mb-5 ">
 
                                 <div>
-                                    {/* <button onClick={google} className="btn btn-circle btn-outline "><FaGoogle></FaGoogle></button> */}
+                                    <button onClick={google} className="btn btn-circle btn-outline "><FaGoogle></FaGoogle></button>
                                 </div>
 
                             </div>

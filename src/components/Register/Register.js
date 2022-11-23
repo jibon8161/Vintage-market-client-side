@@ -1,4 +1,5 @@
 import React, { useContext, useState } from 'react';
+import toast from 'react-hot-toast';
 import { Link } from 'react-router-dom';
 import { InfoContext } from '../AuthProvider/AuthContext';
 
@@ -31,6 +32,8 @@ const Register = () => {
 
 
                     })
+
+                    toast.success('User created  successfully')
 
             })
             .catch(err => {
@@ -79,7 +82,7 @@ const Register = () => {
                                     <select defaultValue={'user'} name='select' className="select select-bordered w-full max-w-xs">
 
                                         <option>Seller</option>
-                                        <option value='user'>User</option>
+                                        <option value='user'>Buyers</option>
                                     </select>
                                 </div>
                                 <div className="form-control">

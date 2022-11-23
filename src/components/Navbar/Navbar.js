@@ -35,7 +35,7 @@ export const Nav = () => {
                             </svg>
                             <span className="ml-2 text-xl font-bold tracking-wide text-black uppercase">
                                 VINTAGE RESALE MARKET
-                            
+                             
                             </span>
                         </NavLink>
                         <ul className="flex items-center  space-x-8 lg:flex">
