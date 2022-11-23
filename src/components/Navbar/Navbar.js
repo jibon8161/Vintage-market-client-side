@@ -5,7 +5,7 @@ export const Nav = () => {
     const [isMenuOpen, setIsMenuOpen] = useState(false);
 
     return (
-        <div className="bg-gradient-to-r from-purple-400 to-purple-700 shadow-2xl">
+        <div className="bg-gradient-to-r from-purple-400 to-purple-700 shadow-2xl ">
             <div className="px-4 py-5 mx-auto sm:max-w-xl md:max-w-full lg:max-w-screen-xl md:px-24 lg:px-8">
                 <div className="relative flex items-center justify-between">
                     <div className="flex items-center">
@@ -30,8 +30,8 @@ export const Nav = () => {
                                 <rect x="14" y="1" width="7" height="6" />
                                 <rect x="14" y="11" width="7" height="12" />
                             </svg>
-                            <span className="ml-2 text-xl font-bold tracking-wide text-gray-100 uppercase">
-                                Jibon
+                            <span className="ml-2 text-xl font-bold tracking-wide text-black uppercase">
+                                VINTAGE RESALE MARKET
                             </span>
                         </NavLink>
                         <ul className="flex items-center  space-x-8 lg:flex">
