@@ -19,11 +19,18 @@ const Register = () => {
         console.log(name, email, password, url, select)
 
         createUser(email, password)
+
             .then(result => {
 
                 const user = result.user;
                 console.log(user)
+                updateProfileInfo(name, url)
+                    .then(() => { })
+                    .catch(error => {
+                        console.log(error)
 
+
+                    })
 
             })
             .catch(err => {

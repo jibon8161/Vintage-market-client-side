@@ -1,10 +1,14 @@
-import React, { createContext } from 'react';
-import { getAuth, createUserWithEmailAndPassword } from 'firebase/auth'
+import React, { createContext, useState } from 'react';
+import { getAuth, createUserWithEmailAndPassword, updateProfile } from 'firebase/auth'
 import { app } from '../Firebase/Firebase.config';
 
 export const InfoContext = createContext()
 const auth = getAuth(app)
 const AuthContext = ({ children }) => {
+
+    const [user, setUser] = useState()
+    const [loader, setLoader] = useState(true)
+
 
     const createUser = (email, pass) => {
 
@@ -15,12 +19,22 @@ const AuthContext = ({ children }) => {
 
     }
 
+    const updateProfileInfo = (name, url) => {
+
+        return updateProfile(auth.currentUser, {
+            displayName: name,
+            photoURL: url
+
+        })
+    }
+
 
 
     const contextData = {
 
         user: 'jibon',
         createUser,
+        updateProfileInfo,
 
 
 
