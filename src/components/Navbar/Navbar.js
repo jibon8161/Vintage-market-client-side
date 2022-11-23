@@ -1,11 +1,22 @@
 import { useContext, useState } from "react";
+import toast from "react-hot-toast";
 import { NavLink } from "react-router-dom";
 import { InfoContext } from "../AuthProvider/AuthContext";
 
 export const Nav = () => {
     const [isMenuOpen, setIsMenuOpen] = useState(false);
 
-    const { user } = useContext(InfoContext)
+    const { user, logOut } = useContext(InfoContext)
+
+
+    const SignOut = () => {
+
+
+        logOut()
+            .then(toast.success('Log Out'))
+
+
+    }
 
     return (
         <div className="bg-gradient-to-r from-purple-400 to-purple-700 shadow-2xl ">
@@ -35,7 +46,7 @@ export const Nav = () => {
                             </svg>
                             <span className="ml-2 text-xl font-bold tracking-wide text-black uppercase">
                                 VINTAGE RESALE MARKET
-                             
+
                             </span>
                         </NavLink>
                         <ul className="flex items-center  space-x-8 lg:flex">
@@ -82,26 +93,35 @@ export const Nav = () => {
                         </ul>
                     </div>
                     <ul className="flex items-center  space-x-8 lg:flex">
-                        <li>
-                            <NavLink
-                                to="/login"
-                                aria-label="Sign in"
-                                title="Sign in"
-                                className="font-medium tracking-wide text-gray-100 transition-colors duration-200 hover:text-teal-accent-400"
-                            >
-                                Sign in
-                            </NavLink>
-                        </li>
-                        <li>
-                            <NavLink
-                                to="/register"
-                                className="inline-flex items-center justify-center h-12 px-6 font-medium tracking-wide text-white transition duration-200 rounded shadow-md bg-deep-purple-accent-400 hover:bg-deep-purple-accent-700 focus:shadow-outline focus:outline-none"
-                                aria-label="Sign up"
-                                title="Sign up"
-                            >
-                                Sign up
-                            </NavLink>
-                        </li>
+                        {user && user?.uid ? <button onClick={SignOut} className="inline-flex items-center justify-center h-12 px-6 font-medium tracking-wide text-white transition duration-200 rounded shadow-md bg-deep-purple-accent-400 hover:bg-deep-purple-accent-700 focus:shadow-outline focus:outline-none">LogOut</button>
+                            :
+
+                            <>
+
+                                <li>
+                                    <NavLink
+                                        to="/login"
+                                        aria-label="Sign in"
+                                        title="Sign in"
+                                        className="font-medium tracking-wide text-gray-100 transition-colors duration-200 hover:text-teal-accent-400"
+                                    >
+                                        Sign in
+                                    </NavLink>
+                                </li>
+                                <li>
+                                    <NavLink
+                                        to="/signup"
+                                        className="inline-flex items-center justify-center h-12 px-6 font-medium tracking-wide text-white transition duration-200 rounded shadow-md bg-deep-purple-accent-400 hover:bg-deep-purple-accent-700 focus:shadow-outline focus:outline-none"
+                                        aria-label="Sign up"
+                                        title="Sign up"
+                                    >
+                                        Sign up
+                                    </NavLink>
+                                </li>
+                            </>
+
+
+                        }
                     </ul>
                     <div className="lg:hidden">
                         <button

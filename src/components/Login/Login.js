@@ -2,9 +2,10 @@ import React, { useContext, useState } from 'react';
 import { Link } from 'react-router-dom';
 import { FaGoogle } from "react-icons/fa";
 import { InfoContext } from '../AuthProvider/AuthContext';
+import { GoogleAuthProvider } from 'firebase/auth';
 const Login = () => {
     const [error, setError] = useState('')
-
+    const gProvider = new GoogleAuthProvider()
     const { signInWithEmail, forgetPass, googleSignIn } = useContext(InfoContext)
 
     const handleLogin = (event) => {
@@ -47,7 +48,28 @@ const Login = () => {
     }
 
 
-    const google = () => { }
+    const google = () => {
+
+        googleSignIn(gProvider)
+            .then(result => {
+
+                const user = result.user;
+                console.log(user)
+
+
+
+            })
+            .catch(error => {
+
+
+                console.log(error)
+
+
+
+            })
+
+
+    }
 
 
 
