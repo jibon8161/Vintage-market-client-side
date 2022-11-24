@@ -11,28 +11,13 @@ const DashBoardLayout = () => {
     const { user } = useContext(InfoContext)
 
 
-
     const [users, setUsers] = useState({})
 
-
-    // console.log(user?.email)
-    // const { data: datas = [], isLoading } = useQuery({
-
-
-    //     queryKey: ['users'],
-    //     queryFn: () => fetch(`http://localhost:5000/allusers`, {
-    //     })
-    //         .then(res => res.json())
-
-
-
-    // })
-
-    // console.log(datas.role)
+    const [loader, setLoader] = useState(true)
 
     useEffect(() => {
 
-        if (user?.email) {
+        if (user) {
 
             fetch(`http://localhost:5000/usersByemail?email=${user?.email}`)
                 .then(res => res.json())
@@ -41,7 +26,7 @@ const DashBoardLayout = () => {
                     setUsers(data)
                     console.log(data)
 
-
+                    setLoader(false)
                 })
 
 
@@ -51,14 +36,14 @@ const DashBoardLayout = () => {
 
 
 
-    }, [user.email])
+    }, [user])
 
 
 
     return (
         <div>
             <Navbar></Navbar>
-            <div className="drawer drawer-mobile">
+            <div className="drawer drawer-mobile lg:w-9/12">
                 <input id="userPanel" type="checkbox" className="drawer-toggle" />
                 <div className="drawer-content">
                     <Outlet></Outlet>

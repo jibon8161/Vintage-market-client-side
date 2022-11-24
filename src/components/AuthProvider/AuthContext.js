@@ -29,22 +29,7 @@ const AuthContext = ({ children }) => {
     }
 
 
-    useEffect(() => {
 
-        const unSubscribe = onAuthStateChanged(auth, currentUser => {
-
-            setUser(currentUser)
-
-            setLoader(false)
-
-
-
-        })
-
-        return () => unSubscribe()
-
-
-    }, [])
 
 
     const signInWithEmail = (email, pass) => {
@@ -78,6 +63,23 @@ const AuthContext = ({ children }) => {
 
 
     }
+
+    useEffect(() => {
+
+        const unSubscribe = onAuthStateChanged(auth, currentUser => {
+
+            setUser(currentUser)
+
+            setLoader(false)
+
+
+
+        })
+
+        return () => unSubscribe()
+
+
+    }, [])
 
 
 
