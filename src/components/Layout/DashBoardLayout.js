@@ -26,7 +26,7 @@ const DashBoardLayout = () => {
                     setUsers(data)
                     console.log(data)
 
-                    setLoader(false)
+                    // setLoader(false)
                 })
 
 
@@ -38,7 +38,7 @@ const DashBoardLayout = () => {
 
     }, [user])
 
-
+console.log(users)
 
     return (
         <div>
@@ -54,7 +54,7 @@ const DashBoardLayout = () => {
 
                         {
                             users[0]?.role === 'user' &&
-                            <li to='/dashboard/user'><Link>My orders</Link></li>
+                            <li><Link to='/dashboard/user'>My orders</Link></li>
 
                         }
                         {
