@@ -57,7 +57,7 @@ export const Nav = () => {
                                     title="Our product"
                                     className="font-medium tracking-wide text-gray-100 transition-colors duration-200 hover:text-teal-accent-400"
                                 >
-                                   Home
+                                    Home
                                 </NavLink>
                             </li>
                             <li>
@@ -93,7 +93,20 @@ export const Nav = () => {
                         </ul>
                     </div>
                     <ul className="flex items-center  space-x-8 lg:flex">
-                        {user && user?.uid ? <button onClick={SignOut} className="inline-flex items-center justify-center h-12 px-6 font-medium tracking-wide text-white transition duration-200 rounded shadow-md bg-deep-purple-accent-400 hover:bg-deep-purple-accent-700 focus:shadow-outline focus:outline-none">LogOut</button>
+                        {user && user?.uid ? <>
+                            <button onClick={SignOut} className=" font-medium tracking-wide text-gray-100 transition-colors duration-200 hover:text-teal-accent-400">LogOut</button>
+                            <li>
+                                <NavLink
+                                    to="/dashboard"
+                                    aria-label="Sign in"
+                                    title="Sign in"
+                                    className="font-medium tracking-wide text-gray-100 transition-colors duration-200 hover:text-teal-accent-400"
+                                >
+                                    DashBoard
+                                </NavLink>
+                            </li>
+
+                        </>
                             :
 
                             <>
