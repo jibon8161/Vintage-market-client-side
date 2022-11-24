@@ -62,7 +62,6 @@ const DashBoardLayout = () => {
                 <input id="userPanel" type="checkbox" className="drawer-toggle" />
                 <div className="drawer-content">
                     <Outlet></Outlet>
-
                 </div>
                 <div className="drawer-side">
                     <label htmlFor="userPanel" className="drawer-overlay"></label>
@@ -70,12 +69,20 @@ const DashBoardLayout = () => {
 
                         {
                             users[0]?.role === 'user' &&
-                            <li><Link>My orders</Link></li>
+                            <li to='/dashboard/user'><Link>My orders</Link></li>
 
                         }
                         {
                             users?.[0]?.role === 'Seller' &&
                             <li><Link to='/dashboard/addproducts'>Add A product </Link></li>
+
+                        }
+                        {
+                            users?.[0]?.role === 'admin' &&
+                            <>
+                                <li><Link to='/dashboard/allsellers'>All Sellers </Link></li>
+                                <li><Link to='/dashboard/allbuyers'>All Buyers  </Link></li>
+                            </>
 
                         }
 

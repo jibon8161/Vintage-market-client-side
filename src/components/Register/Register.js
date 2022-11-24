@@ -1,12 +1,12 @@
 import React, { useContext, useState } from 'react';
 import toast from 'react-hot-toast';
-import { Link } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 import { InfoContext } from '../AuthProvider/AuthContext';
 
 const Register = () => {
 
     const [error, setError] = useState('')
-
+    const navigate = useNavigate()
     const { createUser, updateProfileInfo } = useContext(InfoContext)
     const handleSignup = event => {
         event.preventDefault()
@@ -69,7 +69,7 @@ const Register = () => {
 
                     })
 
-
+                navigate('/')
 
             })
             .catch(err => {
