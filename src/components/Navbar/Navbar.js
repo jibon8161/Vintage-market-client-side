@@ -3,7 +3,7 @@ import toast from "react-hot-toast";
 import { NavLink } from "react-router-dom";
 import { InfoContext } from "../AuthProvider/AuthContext";
 
-export const Nav = () => {
+export const Navbar = () => {
     const [isMenuOpen, setIsMenuOpen] = useState(false);
 
     const { user, logOut } = useContext(InfoContext)
@@ -49,7 +49,7 @@ export const Nav = () => {
 
                             </span>
                         </NavLink>
-                        <ul className="flex items-center  space-x-8 lg:flex">
+                        <ul className="flex items-center hidden  space-x-8 lg:flex">
                             <li>
                                 <NavLink
                                     to="/"
@@ -70,16 +70,7 @@ export const Nav = () => {
                                     Features
                                 </NavLink>
                             </li>
-                            <li>
-                                <NavLink
-                                    to="/"
-                                    aria-label="Product pricing"
-                                    title="Product pricing"
-                                    className="font-medium tracking-wide text-gray-100 transition-colors duration-200 hover:text-teal-accent-400"
-                                >
-                                    Pricing
-                                </NavLink>
-                            </li>
+                     
                             <li>
                                 <NavLink
                                     to="/"
@@ -92,7 +83,7 @@ export const Nav = () => {
                             </li>
                         </ul>
                     </div>
-                    <ul className="flex items-center  space-x-8 lg:flex">
+                    <ul className="flex items-center hidden  space-x-8 lg:flex">
                         {user && user?.uid ? <>
                             <button onClick={SignOut} className=" font-medium tracking-wide text-gray-100 transition-colors duration-200 hover:text-teal-accent-400">LogOut</button>
                             <li>
@@ -158,6 +149,7 @@ export const Nav = () => {
                                 />
                             </svg>
                         </button>
+                        <label htmlFor="userPanel" className="btn btn-primary drawer-button lg:hidden">Open drawer</label>
                         {isMenuOpen && (
                             <div className="absolute top-0 left-0 w-full">
                                 <div className="p-5 bg-white border rounded shadow-sm">
