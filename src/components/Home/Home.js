@@ -1,35 +1,74 @@
+import { useQuery } from '@tanstack/react-query';
 import React from 'react';
 import { useNavigate } from 'react-router-dom';
+import SmartPhones from '../Phones/SmartPhones';
 import Advertisement from './Advertisement';
+import Mobiles from './Mobiles/Mobiles';
 
 const Home = () => {
     const navigate = useNavigate()
 
-    const smart = () => {
 
 
-        navigate('/smart')
+    let { data: categorynames = [], isLoading } = useQuery({
 
 
-
-    }
-    const folding = () => {
-
-
-        navigate('/folding')
-       
+        queryKey: ['email'],
+        queryFn: () => fetch('http://localhost:5000/categoryname')
+            .then(res => res.json())
 
 
 
-    }
-    const basic = () => {
-
-
-        navigate('/basic')
+    })
 
 
 
-    }
+
+    console.log(categorynames)
+
+    // const smart = (category) => {
+
+
+
+    //     console.log(category)
+
+
+    //     fetch(`http://localhost:5000/category?category=${category}`)
+    //         .then(res => res.json())
+    //         .then(data => {
+
+    //             console.log(data)
+
+
+    //         })
+
+
+
+    // navigate('/smart')
+
+
+
+
+
+
+    // }
+    // const folding = () => {
+
+
+    //     navigate('/folding')
+
+
+
+
+    // }
+    // const basic = () => {
+
+
+    //     navigate('/basic')
+
+
+
+    // }
 
     return (
         <div>
@@ -75,37 +114,14 @@ const Home = () => {
                 <Advertisement></Advertisement>
             </div>
 
-            <div>
-                <h1 className='mt-5 mb-5 text-5xl uppercase  font-bold underline'><span className='text-purple-400'>choose</span> a category</h1>
-                <div className='grid grid-cols-3'>
+            <div className='grid grid-cols-3'>
 
-                    <div className="max-w-xs p-6 rounded-md  dark:bg-gray-900 dark:text-gray-50">
-                        <img src="https://www.mobiledokan.com/wp-content/uploads/2022/09/Apple-iPhone-14-Pro-Max.jpg" alt="" className="object-cover object-center w-full rounded-md h-72 dark:bg-gray-500" />
-                        <div className="mt-6 mb-2">
+                {
 
-                            <h2 className="text-xl font-semibold tracking-wide">smartphones</h2>
-                        </div>
-                        <button onClick={smart} className="btn btn-outline btn-primary">Click Here</button>
-                    </div>
+                    categorynames.map(category => <Mobiles key={category._id} category={category}></Mobiles>)
 
-                    <div className="max-w-xs p-6 rounded-md  dark:bg-gray-900 dark:text-gray-50">
-                        <img src="https://cdn.dxomark.com/wp-content/uploads/medias/post-47183/galaxy-z-flip-by-samsung.png" alt="" className="object-cover object-center w-full rounded-md h-72 dark:bg-gray-500" />
-                        <div className="mt-6 mb-2">
 
-                            <h2 className="text-xl font-semibold tracking-wide">folding phones</h2>
-                        </div>
-                        <button onClick={folding} className="btn btn-outline btn-primary">Click Here</button>
-                    </div>
-
-                    <div className="max-w-xs p-6 rounded-md  dark:bg-gray-900 dark:text-gray-50">
-                        <img src="https://i.gadgets360cdn.com/large/Nokia_3310_1487075565010.png" alt="" className="object-cover object-center w-full rounded-md h-72 dark:bg-gray-500" />
-                        <div className="mt-6 mb-2">
-
-                            <h2 className="text-xl font-semibold tracking-wide">Basic phones</h2>
-                        </div>
-                        <button onClick={basic} className="btn btn-outline btn-primary">Click Here</button>
-                    </div>
-                </div>
+                }
 
             </div>
 

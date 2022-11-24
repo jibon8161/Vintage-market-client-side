@@ -22,12 +22,56 @@ const AddProducts = () => {
         const purchaseyear = form.purchaseyear.value
         const usagetime = form.usagetime.value
         const date = new Date()
+        const sellerEmail = user?.email
         const sellerName = user?.displayName
         console.log(name, url, description, location,
-            mobile, askingprice, orginalprice, purchaseyear, usagetime, condition, category, date, sellerName)
+            mobile, askingprice, orginalprice, purchaseyear, usagetime, condition, category, date, sellerName,sellerEmail)
 
 
 
+        const products = {
+
+            pname: name,
+            purl: url,
+            details: description,
+            location: location,
+            mobilenumber: mobile,
+            askingprice: askingprice,
+            orginalprice,
+            purchaseyear,
+            usagetime,
+            condition, category, date,
+            sellerName,
+            sellerEmail
+
+
+
+
+        }
+
+
+
+
+        fetch('http://localhost:5000/products', {
+
+
+            method: "POST",
+            headers: {
+
+                'content-type': 'application/json'
+
+            },
+            body: JSON.stringify(products)
+
+
+
+        })
+
+            .then(res => res.json())
+            .then(data => {
+                console.log(data)
+                form.reset()
+            })
 
 
 
@@ -49,55 +93,55 @@ const AddProducts = () => {
                                     <label className="label">
                                         <span className="label-text">Product Name</span>
                                     </label>
-                                    <input type="text" placeholder="Product name" name='name' className="input input-bordered shadow-inner  shadow-zinc-600 hover:bg-orange-200" />
+                                    <input type="text" placeholder="Product name" name='name' className="input input-bordered shadow-inner  shadow-zinc-600 hover:bg-orange-200" required />
                                 </div>
                                 <div className="form-control">
                                     <label className="label">
                                         <span className="label-text">photo URL</span>
                                     </label>
-                                    <input type="text" placeholder="photo URL" name='url' className="input input-bordered shadow-inner  shadow-zinc-600 hover:bg-orange-200" />
+                                    <input type="text" placeholder="photo URL" name='url' className="input input-bordered shadow-inner  shadow-zinc-600 hover:bg-orange-200" required />
                                 </div>
                                 <div className="form-control">
                                     <label className="label">
                                         <span className="label-text">Description</span>
                                     </label>
-                                    <input type="text" placeholder="Description" name='description' className="input input-bordered shadow-inner  shadow-zinc-600 hover:bg-orange-200" />
+                                    <input type="text" placeholder="Description" name='description' className="input input-bordered shadow-inner  shadow-zinc-600 hover:bg-orange-200" required />
                                 </div>
                                 <div className="form-control">
                                     <label className="label">
                                         <span className="label-text">Your Location</span>
                                     </label>
-                                    <input type="text" placeholder="location" name='location' className="input input-bordered shadow-inner  shadow-zinc-600 hover:bg-orange-200" />
+                                    <input type="text" placeholder="location" name='location' className="input input-bordered shadow-inner  shadow-zinc-600 hover:bg-orange-200" required />
                                 </div>
                                 <div className="form-control">
                                     <label className="label">
                                         <span className="label-text">Your Mobile Number</span>
                                     </label>
-                                    <input type="number" placeholder="Mobile number" name='mobile' className="input input-bordered shadow-inner  shadow-zinc-600 hover:bg-orange-200" />
+                                    <input type="number" placeholder="Mobile number" name='mobile' className="input input-bordered shadow-inner  shadow-zinc-600 hover:bg-orange-200" required />
                                 </div>
                                 <div className="form-control">
                                     <label className="label">
                                         <span className="label-text">Your asking price</span>
                                     </label>
-                                    <input type="number" placeholder="asking price" name='askingprice' className="input input-bordered shadow-inner  shadow-zinc-600 hover:bg-orange-200" />
+                                    <input type="number" placeholder="asking price" name='askingprice' className="input input-bordered shadow-inner  shadow-zinc-600 hover:bg-orange-200" required />
                                 </div>
                                 <div className="form-control">
                                     <label className="label">
                                         <span className="label-text">Orginal price</span>
                                     </label>
-                                    <input type="number" placeholder="orginal price" name='orginalprice' className="input input-bordered shadow-inner  shadow-zinc-600 hover:bg-orange-200" />
+                                    <input type="number" placeholder="orginal price" name='orginalprice' className="input input-bordered shadow-inner  shadow-zinc-600 hover:bg-orange-200" required />
                                 </div>
                                 <div className="form-control">
                                     <label className="label">
                                         <span className="label-text">when you buy this product?</span>
                                     </label>
-                                    <input type="date" placeholder="purchase year" name='purchaseyear' className="input input-bordered shadow-inner  shadow-zinc-600 hover:bg-orange-200" />
+                                    <input type="date" placeholder="purchase year" name='purchaseyear' className="input input-bordered shadow-inner  shadow-zinc-600 hover:bg-orange-200" required />
                                 </div>
                                 <div className="form-control">
                                     <label className="label">
                                         <span className="label-text">how many years have you using this product?</span>
                                     </label>
-                                    <input type="text" placeholder="purchase year" name='usagetime' className="input input-bordered shadow-inner  shadow-zinc-600 hover:bg-orange-200" />
+                                    <input type="text" placeholder="purchase year" name='usagetime' className="input input-bordered shadow-inner  shadow-zinc-600 hover:bg-orange-200" required />
                                 </div>
                                 <div className="form-control">
                                     <label className="label">
@@ -106,7 +150,7 @@ const AddProducts = () => {
                                     <select name='condition' className="select select-bordered">
 
                                         <option>excellent</option>
-                                        <option value=''>good</option>
+                                        <option >good</option>
                                         <option>fair</option>
                                     </select>
                                 </div>
@@ -115,9 +159,8 @@ const AddProducts = () => {
                                         <span className="label-text">Select a category</span>
                                     </label>
                                     <select name='category' className="select select-bordered">
-
                                         <option>smartphones</option>
-                                        <option value=''>folding phones</option>
+                                        <option >folding phones</option>
                                         <option>Basic phones</option>
                                     </select>
                                 </div>
