@@ -91,7 +91,7 @@ export const router = createBrowserRouter([
             {
 
                 path: '/dashboard/allbuyers',
-                element: <Allbuyers></Allbuyers>
+                element:  <Allbuyers></Allbuyers>
 
             },
 

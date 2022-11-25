@@ -117,8 +117,8 @@ const Register = () => {
                                     </label>
                                     <select defaultValue={'user'} name='select' className="select select-bordered w-full max-w-xs">
 
-                                        <option>Seller</option>
-                                        <option value='user'>Buyers</option>
+                                        <option>seller</option>
+                                        <option value='user'>buyers</option>
                                     </select>
                                 </div>
                                 <div className="form-control">
