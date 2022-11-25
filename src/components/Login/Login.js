@@ -118,6 +118,41 @@ const Login = () => {
 
                 const user = result.user;
                 console.log(user)
+                const activeUser = {
+
+                    email: user.email
+
+
+                }
+                fetch('http://localhost:5000/jwt', {
+
+
+                    method: "POST",
+                    headers: {
+
+                        'content-type': 'application/json'
+
+                    },
+                    body: JSON.stringify(activeUser)
+
+
+
+                })
+                    .then(res => res.json())
+                    .then(data => {
+
+
+                        console.log(data)
+
+                        localStorage.setItem('token', data.token)
+
+                        toast.success('You are successfully logged in')
+                        navigate(from, { state: true })
+
+
+                    })
+
+
 
                 const currentUser = {
 
@@ -151,7 +186,7 @@ const Login = () => {
 
                     })
 
-                navigate(from, { state: true })
+              
 
 
 

@@ -1,12 +1,14 @@
 import React, { useContext, useState } from 'react';
 import toast from 'react-hot-toast';
-import { Link, useNavigate } from 'react-router-dom';
+import { Link, useLocation, useNavigate } from 'react-router-dom';
 import { InfoContext } from '../AuthProvider/AuthContext';
 
 const Register = () => {
 
     const [error, setError] = useState('')
     const navigate = useNavigate()
+    const location = useLocation()
+    const from = location?.state?.from?.pathname || '/'
     const { createUser, updateProfileInfo } = useContext(InfoContext)
     const handleSignup = event => {
         event.preventDefault()
@@ -26,15 +28,48 @@ const Register = () => {
                 const user = result.user;
                 console.log(user)
 
-                updateProfileInfo(name, url)
-                    .then(() => { })
-                    .catch(error => {
-                        console.log(error)
+                const activeUser = {
 
+                    email: user.email
+
+
+                }
+
+
+                fetch('https://memorable-journey-tourist-service-server.vercel.app/jwt', {
+
+
+                    method: "POST",
+                    headers: {
+
+                        'content-type': 'application/json'
+
+                    },
+                    body: JSON.stringify(activeUser)
+
+
+
+                })
+                    .then(res => res.json())
+                    .then(data => {
+
+                        console.log(data)
+                        localStorage.setItem('token', data.token)
+                        toast.success('User created  successfully')
+                        form.reset()
+                        setError('')
+
+
+                        updateProfileInfo(name, url)
+                            .then(() => { })
+                            .catch(error => {
+                                console.log(error)
+
+
+                            })
+                        navigate(from, { state: true })
 
                     })
-
-                toast.success('User created  successfully')
 
 
                 const currentUser = {
