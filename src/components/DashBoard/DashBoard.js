@@ -1,9 +1,64 @@
-import React from 'react';
+import { useQuery } from '@tanstack/react-query';
+import React, { useContext } from 'react';
+import { InfoContext } from '../AuthProvider/AuthContext';
 
 const DashBoard = () => {
+
+    const { user } = useContext(InfoContext)
+
+    const { data: mybooking = [], isLoading, refetch } = useQuery({
+
+
+        queryKey: ['email'],
+        queryFn: () => fetch(`http://localhost:5000/bookings?email=${user.email}`)
+            .then(res => res.json())
+
+
+
+    })
+
+    console.log(mybooking)
+
+    refetch()
+
+
     return (
-        <div>
-           <h1>dash</h1>
+        <div className="container p-5 mx-auto sm:p-4 dark:text-gray-100">
+            <h2 className="mb-4 text-2xl font-semibold leading-tight">My bookings</h2>
+            <div className="overflow-x-auto">
+                <table className="min-w-full text-xs">
+
+                    <thead className="dark:bg-gray-700">
+                        <tr className="text-left">
+                            <th className="p-3">Serial #</th>
+                            <th className="p-3">Image</th>
+                            <th className="p-3">title</th>
+                            <th className="p-3">Amount</th>
+                            <th className="p-3">Status</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        {
+
+                            mybooking.map((booking, index) =>
+                                <tr className="border-b border-opacity-20 dark:border-gray-700 dark:bg-gray-900 mt-5">
+                                    <th>{index + 1}</th>
+                                    <td><div className="avatar">
+                                        <div className="w-24 rounded-full ring ring-primary ring-offset-base-100 ring-offset-2">
+                                            <img src={booking.img} alt='' />
+                                        </div>
+                                    </div></td>
+                                    <td>Quality Control Specialist</td>
+                                    <td>Littel, Schaden and Vandervort</td>
+                                    <td>Canada</td>
+
+                                </tr>)
+
+                        }
+
+                    </tbody>
+                </table>
+            </div>
         </div>
     );
 };

@@ -24,7 +24,7 @@ const DashBoardLayout = () => {
                 .then(data => {
 
                     setUsers(data)
-                    console.log(data)
+              
 
                     // setLoader(false)
                 })
@@ -38,7 +38,7 @@ const DashBoardLayout = () => {
 
     }, [user])
 
-console.log(users)
+
 
     return (
         <div>

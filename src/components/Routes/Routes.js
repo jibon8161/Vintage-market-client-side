@@ -73,7 +73,7 @@ export const router = createBrowserRouter([
             {
 
                 path: '/dashboard/user',
-                element: <DashBoard></DashBoard>
+                element: <PrivateRoute><DashBoard></DashBoard></PrivateRoute>
 
             },
             {

@@ -1,4 +1,5 @@
 import React, { useContext } from 'react';
+import toast from 'react-hot-toast';
 import { InfoContext } from '../../AuthProvider/AuthContext';
 
 const BookinigModal = ({ mobile }) => {
@@ -16,7 +17,49 @@ const BookinigModal = ({ mobile }) => {
         const phonenumber = form.phonenumber.value;
         const location = form.location.value;
 
+
         console.log(name, email, productname, productprice, phonenumber, location)
+
+        const booking = {
+
+            img: mobile.purl,
+            username: name,
+            email: email,
+            productname,
+            productprice,
+            phonenumber,
+            location
+
+
+
+
+
+        }
+
+        fetch('http://localhost:5000/booking', {
+
+
+            method: "POST",
+            headers: {
+
+                'content-type': 'application/json'
+
+            },
+            body: JSON.stringify(booking)
+
+
+
+        })
+
+            .then(res => res.json())
+            .then(data => {
+                console.log(data)
+                form.reset()
+                toast.success('item is booked')
+
+            })
+
+
 
 
     }
