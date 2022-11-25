@@ -5,14 +5,40 @@ import { InfoContext } from '../AuthProvider/AuthContext';
 
 const DashBoard = () => {
 
-    const { user } = useContext(InfoContext)
+    const { user,logOut } = useContext(InfoContext)
 
     const { data: mybooking = [], isLoading, refetch } = useQuery({
 
 
         queryKey: ['email'],
-        queryFn: () => fetch(`http://localhost:5000/bookings?email=${user.email}`)
-            .then(res => res.json())
+        queryFn: () => fetch(`http://localhost:5000/bookings?email=${user.email}`, {
+
+
+
+            headers: {
+
+                authorization: `Bearer ${localStorage.getItem('token')}`
+
+            }
+
+
+
+
+
+
+        })
+            .then(res => {
+
+                if (res.status === 401 || res.status === 403) {
+
+                    logOut()
+
+
+                }
+
+                return res.json()
+
+            })
 
 
 

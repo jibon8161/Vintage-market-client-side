@@ -8,23 +8,44 @@ import { Navbar } from '../Navbar/Navbar';
 
 const DashBoardLayout = () => {
 
-    const { user } = useContext(InfoContext)
+    const { user, logOut } = useContext(InfoContext)
 
 
     const [users, setUsers] = useState({})
 
-    const [loader, setLoader] = useState(true)
+   
 
     useEffect(() => {
 
         if (user) {
 
-            fetch(`http://localhost:5000/usersByemail?email=${user?.email}`)
-                .then(res => res.json())
+            fetch(`http://localhost:5000/usersByemail?email=${user?.email}`, {
+
+
+                headers: {
+
+                    authorization: `Bearer ${localStorage.getItem('token')}`
+
+                }
+
+
+            })
+                .then(res => {
+
+                    if (res.status === 401 || res.status === 403) {
+
+                        logOut()
+
+
+                    }
+
+                    return res.json()
+
+                })
                 .then(data => {
 
                     setUsers(data)
-              
+
 
                     // setLoader(false)
                 })

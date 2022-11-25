@@ -3,22 +3,11 @@ import axios from 'axios';
 import React, { useEffect, useState } from 'react';
 import toast from 'react-hot-toast';
 
-
+import { TiTick } from "react-icons/ti";
 const Allsellers = () => {
 
 
 
-    // const [sellers, setSeller] = useState('')
-    // useEffect(() => {
-
-
-    //     axios.get('http://localhost:5000/sellers?role=seller')
-    //         .then(data => setSeller(data.data))
-
-
-
-
-    // }, [])
 
     const { data: sellers = [], isLoading, refetch } = useQuery({
 
@@ -67,8 +56,35 @@ const Allsellers = () => {
 
 
 
+    const verify = id => {
 
-    console.log(sellers?.data)
+
+        console.log(id)
+        fetch(`http://localhost:5000/verify/${id}`, {
+
+
+            method: "PUT",
+
+
+        })
+            .then(res => res.json())
+            .then(data => {
+
+                if (data.modifiedCount > 0) {
+
+                    toast.success('seller verified')
+                    refetch()
+
+                }
+
+            })
+
+
+    }
+
+
+
+
 
     return (
         <div>
@@ -85,6 +101,7 @@ const Allsellers = () => {
                                     <th className="p-3">Name</th>
                                     <th className="p-3">Email</th>
                                     <th className="p-3">Role</th>
+                                    <th className="p-3">Verify</th>
                                     <th className="p-3">Action</th>
                                 </tr>
                             </thead>
@@ -92,11 +109,20 @@ const Allsellers = () => {
                                 {
 
                                     sellers?.map((seller, index) =>
-                                        <tr className="border-b border-opacity-20 dark:border-gray-700 dark:bg-gray-900 mt-5 font-semibold">
+                                        <tr key={index} className="border-b border-opacity-20 dark:border-gray-700 dark:bg-gray-900 mt-5 font-semibold">
                                             <th>{index + 1}</th>
                                             <td> {seller.name}</td>
                                             <td>{seller.email}</td>
                                             <td>{seller.role} </td>
+                                            <td>
+
+
+                                                {
+
+                                                    seller.status === 'verified' ? <p className='text-blue-700 font-bold'><TiTick className='text-4xl '></TiTick></p> : <button onClick={() => verify(seller._id)} className='btn btn-sm btn-success'>unverified</button>
+
+                                                }
+                                            </td>
                                             <td>
 
                                                 <button onClick={() => delbtn(seller._id)} className='btn btn-sm btn-warning'>Delete</button>

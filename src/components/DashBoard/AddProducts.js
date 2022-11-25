@@ -1,13 +1,34 @@
-import React, { useContext } from 'react';
+import React, { useContext, useEffect, useState } from 'react';
 import toast from 'react-hot-toast';
 import { useNavigate } from 'react-router-dom';
 import { InfoContext } from '../AuthProvider/AuthContext';
 import { format } from 'date-fns';
+import axios from 'axios';
+
 const AddProducts = () => {
+
 
     const { user } = useContext(InfoContext)
     const navigate = useNavigate()
     console.log(user)
+
+    const [sellers, setSeller] = useState([])
+
+    useEffect(() => {
+
+
+        axios.get(`http://localhost:5000/usersByemail?email=${user.email}`)
+            .then(data => setSeller(data.data))
+
+
+
+
+    }, [user.email])
+
+
+    console.log(sellers[0]?.status)
+
+
     const handleSubmit = event => {
 
         event.preventDefault()
@@ -30,8 +51,6 @@ const AddProducts = () => {
         console.log(name, url, description, location,
             mobile, askingprice, orginalprice, purchaseyear, usagetime, condition, category, date, sellerName, sellerEmail)
 
-
-
         const products = {
 
             pname: name,
@@ -45,7 +64,8 @@ const AddProducts = () => {
             usagetime,
             condition, category, date,
             sellerName,
-            sellerEmail
+            sellerEmail,
+            sellerstatus: sellers[0]?.status
 
 
 

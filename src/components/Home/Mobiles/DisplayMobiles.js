@@ -1,7 +1,7 @@
 import React from 'react';
 import { format } from 'date-fns';
 import BookinigModal from './BookinigModal';
-
+import { TiTick } from "react-icons/ti";
 const DisplayMobiles = ({ mobile, setBooking }) => {
     return (
         <div>
@@ -10,11 +10,12 @@ const DisplayMobiles = ({ mobile, setBooking }) => {
                     {
 
 
-                        mobile?.verify &&
+                        mobile?.sellerstatus &&
 
-                        <p><span className='text-primary'>verified</span></p>
+                        <p className='text-blue-700 font-bold'><TiTick className='text-4xl '></TiTick> Verified</p>
 
                     }
+
                     <div className="flex flex-col space-y-1">
                         <p className="text-sm font-semibold">{mobile?.sellerName}</p>
                         <h1 className='text-xs dark:text-gray-400'><span className='font-bold'>Location</span>:{mobile.location}</h1>
