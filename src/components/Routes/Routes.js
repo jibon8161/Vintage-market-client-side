@@ -4,6 +4,7 @@ import AddProducts from "../DashBoard/AddProducts";
 import Allbuyers from "../DashBoard/Allbuyers";
 import Allsellers from "../DashBoard/Allsellers";
 import DashBoard from "../DashBoard/DashBoard";
+import Payment from "../DashBoard/Payment";
 import Error from "../Error page/Error";
 import Home from "../Home/Home";
 import AllMobiles from "../Home/Mobiles/AllMobiles";
@@ -91,7 +92,14 @@ export const router = createBrowserRouter([
             {
 
                 path: '/dashboard/allbuyers',
-                element:  <Allbuyers></Allbuyers>
+                element: <Allbuyers></Allbuyers>
+
+            },
+            {
+
+                path: '/dashboard/payment/:id',
+                element: <Payment></Payment>,
+                loader: ({ params }) => fetch(`http://localhost:5000/bookings/${params.id}`)
 
             },
 

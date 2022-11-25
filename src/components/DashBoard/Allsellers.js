@@ -1,22 +1,70 @@
+import { useQuery } from '@tanstack/react-query';
 import axios from 'axios';
 import React, { useEffect, useState } from 'react';
+import toast from 'react-hot-toast';
 
 
 const Allsellers = () => {
 
 
 
-    const [sellers, setSeller] = useState('')
-    useEffect(() => {
+    // const [sellers, setSeller] = useState('')
+    // useEffect(() => {
 
 
-        axios.get('http://localhost:5000/sellers?role=seller')
-            .then(data => setSeller(data.data))
+    //     axios.get('http://localhost:5000/sellers?role=seller')
+    //         .then(data => setSeller(data.data))
 
 
 
 
-    }, [])
+    // }, [])
+
+    const { data: sellers = [], isLoading, refetch } = useQuery({
+
+
+        queryKey: ['email'],
+        queryFn: () => fetch('http://localhost:5000/sellers?role=seller')
+            .then(res => res.json())
+
+
+
+    })
+
+    const delbtn = id => {
+
+
+
+        console.log(id)
+
+        const proceed = window.confirm('are u sure that you want to delete your review?')
+
+        if (proceed) {
+
+
+            fetch(`http://localhost:5000/deluser/${id}`, {
+
+                method: 'DELETE',
+
+            })
+
+                .then(res => res.json())
+                .then(data => {
+
+                    console.log(data)
+                    if (data.deletedCount > 0) {
+
+                        toast.error('deleted successfully')
+                        refetch()
+
+                    }
+
+
+
+                })
+        }
+    }
+
 
 
 
@@ -51,7 +99,7 @@ const Allsellers = () => {
                                             <td>{seller.role} </td>
                                             <td>
 
-                                                <button className='btn btn-sm btn-warning'>Delete</button>
+                                                <button onClick={() => delbtn(seller._id)} className='btn btn-sm btn-warning'>Delete</button>
 
                                             </td>
 
