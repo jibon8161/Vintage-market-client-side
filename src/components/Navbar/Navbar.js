@@ -62,15 +62,15 @@ export const Navbar = () => {
                             </li>
                             <li>
                                 <NavLink
-                                    to="/"
+                                    to="/blog"
                                     aria-label="Our product"
                                     title="Our product"
                                     className="font-medium tracking-wide text-gray-100 transition-colors duration-200 hover:text-teal-accent-400"
                                 >
-                                    Features
+                                    Blog
                                 </NavLink>
                             </li>
-                     
+
                             <li>
                                 <NavLink
                                     to="/"

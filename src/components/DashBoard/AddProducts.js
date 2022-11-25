@@ -1,9 +1,12 @@
 import React, { useContext } from 'react';
+import toast from 'react-hot-toast';
+import { useNavigate } from 'react-router-dom';
 import { InfoContext } from '../AuthProvider/AuthContext';
-
+import { format } from 'date-fns';
 const AddProducts = () => {
 
     const { user } = useContext(InfoContext)
+    const navigate = useNavigate()
     console.log(user)
     const handleSubmit = event => {
 
@@ -21,11 +24,11 @@ const AddProducts = () => {
         const orginalprice = form.orginalprice.value
         const purchaseyear = form.purchaseyear.value
         const usagetime = form.usagetime.value
-        const date = new Date()
+        const date = format(new Date(), 'PPPPpppp')
         const sellerEmail = user?.email
         const sellerName = user?.displayName
         console.log(name, url, description, location,
-            mobile, askingprice, orginalprice, purchaseyear, usagetime, condition, category, date, sellerName,sellerEmail)
+            mobile, askingprice, orginalprice, purchaseyear, usagetime, condition, category, date, sellerName, sellerEmail)
 
 
 
@@ -71,6 +74,8 @@ const AddProducts = () => {
             .then(data => {
                 console.log(data)
                 form.reset()
+                toast.success('product added')
+                navigate('/myproduct')
             })
 
 

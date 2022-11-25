@@ -8,6 +8,7 @@ const AuthContext = ({ children }) => {
 
     const [user, setUser] = useState()
     const [loader, setLoader] = useState(true)
+    const [mobiles, setMobiles] = useState([])
 
 
     const createUser = (email, pass) => {
@@ -92,7 +93,9 @@ const AuthContext = ({ children }) => {
         googleSignIn,
         logOut,
         forgetPass,
-        loader
+        loader,
+        mobiles,
+        setMobiles
 
 
 

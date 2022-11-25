@@ -10,7 +10,7 @@ const Home = () => {
 
 
 
-    let { data: categorynames = [], isLoading } = useQuery({
+    const { data: categorynames = [], isLoading } = useQuery({
 
 
         queryKey: ['email'],
@@ -26,49 +26,7 @@ const Home = () => {
 
     console.log(categorynames)
 
-    // const smart = (category) => {
 
-
-
-    //     console.log(category)
-
-
-    //     fetch(`http://localhost:5000/category?category=${category}`)
-    //         .then(res => res.json())
-    //         .then(data => {
-
-    //             console.log(data)
-
-
-    //         })
-
-
-
-    // navigate('/smart')
-
-
-
-
-
-
-    // }
-    // const folding = () => {
-
-
-    //     navigate('/folding')
-
-
-
-
-    // }
-    // const basic = () => {
-
-
-    //     navigate('/basic')
-
-
-
-    // }
 
     return (
         <div>

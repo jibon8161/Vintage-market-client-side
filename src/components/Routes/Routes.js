@@ -1,12 +1,16 @@
 import { createBrowserRouter } from "react-router-dom";
+import Blog from "../Blog/Blog";
 import AddProducts from "../DashBoard/AddProducts";
 import Allbuyers from "../DashBoard/Allbuyers";
 import Allsellers from "../DashBoard/Allsellers";
 import DashBoard from "../DashBoard/DashBoard";
+import Error from "../Error page/Error";
 import Home from "../Home/Home";
+import AllMobiles from "../Home/Mobiles/AllMobiles";
 import DashBoardLayout from "../Layout/DashBoardLayout";
 import Main from "../Layout/Main";
 import Login from "../Login/Login";
+import MyProducts from "../MyProducts/MyProducts";
 import Basic from "../Phones/Basic";
 import Folding from "../Phones/Folding";
 import SmartPhones from "../Phones/SmartPhones";
@@ -19,7 +23,7 @@ export const router = createBrowserRouter([
 
         path: '/',
         element: <Main></Main>,
-        errorElement: <p>Error</p>,
+        errorElement: <Error></Error>,
         children: [
 
             {
@@ -38,20 +42,24 @@ export const router = createBrowserRouter([
 
             },
             {
-                path: '/smart',
-                element: <SmartPhones></SmartPhones>
+                path: '/allmobiles/:id',
+                element: <PrivateRoute><AllMobiles></AllMobiles></PrivateRoute>,
+
 
             },
             {
-                path: '/folding',
-                element: <Folding></Folding>
+                path: '/blog',
+                element: <Blog></Blog>,
+
 
             },
             {
-                path: '/basic',
-                element: <PrivateRoute><Basic></Basic></PrivateRoute>
+
+                path: '/myproduct',
+                element: <PrivateRoute><MyProducts></MyProducts></PrivateRoute>
 
             },
+
         ]
 
     },
@@ -59,7 +67,7 @@ export const router = createBrowserRouter([
 
         path: '/dashboard',
         element: <PrivateRoute><DashBoardLayout></DashBoardLayout>,</PrivateRoute>,
-        errorElement: <p>error</p>,
+        errorElement: <Error></Error>,
         children: [
 
             {
@@ -86,6 +94,7 @@ export const router = createBrowserRouter([
                 element: <Allbuyers></Allbuyers>
 
             },
+
 
 
 

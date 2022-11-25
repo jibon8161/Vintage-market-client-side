@@ -1,16 +1,43 @@
-import React from 'react';
+import { useQuery } from '@tanstack/react-query';
+import React, { useContext, useEffect, useState } from 'react';
+import { useNavigate } from 'react-router-dom';
+import { InfoContext } from '../../AuthProvider/AuthContext';
+import AllMobiles from './AllMobiles';
 
-const Mobiles = ({category}) => {
+const Mobiles = ({ category }) => {
+    const navigate = useNavigate()
+
+    // const { mobiles, setMobiles } = useContext(InfoContext)
+
+
+    const mobilesbtn = () => {
+
+ 
+
+        navigate(`/allmobiles/${category.category}`)
+
+
+
+
+
+    }
+    // console.log(mobiles)
+
+
     return (
         <div>
             <div className="max-w-xs p-6 rounded-md shadow-md dark:bg-gray-900 dark:text-gray-50">
-                <img src="https://source.unsplash.com/random/300x300/?1" alt="" className="object-cover object-center w-full rounded-md h-72 dark:bg-gray-500" />
+                <img src={category.img} alt="" className="object-cover object-center w-full rounded-md h-72 dark:bg-gray-500" />
                 <div className="mt-6 mb-2">
-                    <span className="block text-xs font-medium tracking-widest uppercase dark:text-violet-400">Quisque</span>
-                    <h2 className="text-xl font-semibold tracking-wide">Nam maximus purus</h2>
+
+                    <h2 className="text-xl font-semibold tracking-wide">{category.category}</h2>
                 </div>
-                <p className="dark:text-gray-100">Mauris et lorem at elit tristique dignissim et ullamcorper elit. In sed feugiat mi. Etiam ut lacinia dui.</p>
+                <button onClick={() => mobilesbtn(category)} className="btn btn-outline btn-primary">Click here</button>
             </div>
+
+
+
+
         </div>
     );
 };
