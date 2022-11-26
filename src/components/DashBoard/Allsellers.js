@@ -12,7 +12,7 @@ const Allsellers = () => {
     const { data: sellers = [], isLoading, refetch } = useQuery({
 
 
-        queryKey: ['email'],
+        queryKey: ['email','seller'],
         queryFn: () => fetch('http://localhost:5000/sellers?role=seller')
             .then(res => res.json())
 

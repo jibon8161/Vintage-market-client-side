@@ -6,24 +6,14 @@ import toast from 'react-hot-toast';
 const Allbuyers = () => {
 
 
-    // const [buyers, setBuyers] = useState('')
-    // useEffect(() => {
 
-
-    //     axios.get('http://localhost:5000/sellers?role=user')
-    //         .then(data => setBuyers(data.data))
-
-
-
-
-    // }, [])
 
 
 
     const { data: buyers = [], isLoading, refetch } = useQuery({
 
 
-        queryKey: ['email'],
+        queryKey: ['email','user'],
         queryFn: () => fetch('http://localhost:5000/sellers?role=user')
             .then(res => res.json())
 

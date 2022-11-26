@@ -5,7 +5,7 @@ import { InfoContext } from '../AuthProvider/AuthContext';
 
 const DashBoard = () => {
 
-    const { user,logOut } = useContext(InfoContext)
+    const { user, logOut } = useContext(InfoContext)
 
     const { data: mybooking = [], isLoading, refetch } = useQuery({
 
@@ -49,6 +49,9 @@ const DashBoard = () => {
     refetch()
 
 
+
+
+
     return (
         <div className="container p-5 mx-auto sm:p-4 dark:text-gray-100 ">
             <h2 className="mb-4 text-2xl font-semibold leading-tight">My bookings</h2>
@@ -61,6 +64,7 @@ const DashBoard = () => {
                             <th className="p-3">Image</th>
                             <th className="p-3">title</th>
                             <th className="p-3">Amount</th>
+                            <th className="p-3">Booking Date</th>
                             <th className="p-3">Status</th>
                         </tr>
                     </thead>
@@ -77,6 +81,7 @@ const DashBoard = () => {
                                     </div></td>
                                     <td>{booking.productname}</td>
                                     <td>{booking.productprice} taka</td>
+                                    <td>{booking?.bookingdate}</td>
                                     <td>{
 
                                         booking.productprice && !booking?.paid && <Link to={`/dashboard/payment/${booking._id}`}><button className='btn btn-success btn-sm'>PAY</button></Link>
@@ -91,6 +96,7 @@ const DashBoard = () => {
 
 
                                     </td>
+
 
                                 </tr>)
 

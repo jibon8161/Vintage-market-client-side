@@ -56,6 +56,19 @@ const MyProducts = () => {
     }
 
 
+    const advertise=id=>{
+
+
+
+
+
+
+
+
+        
+    }
+
+
     console.log(myproducts)
     return (
         <div>
@@ -88,11 +101,21 @@ const MyProducts = () => {
                                             <td> {myproduct.pname}</td>
                                             <td>{myproduct.category}</td>
                                             <td>{myproduct.askingprice} </td>
-                                            <td>sold</td>
+                                            <td>{
+
+                                                myproduct.status ? 'sold' : 'available '
+
+
+
+                                            }</td>
                                             <td><button className='btn btn-sm btn-warning' onClick={() => deleteBtn(myproduct._id)}>Delete</button></td>
                                             <td>
 
-                                                <button className='btn btn-sm btn-success'>Advertise</button>
+                                                {
+
+                                                    myproduct.status ? "Already sold" : <button onClick={advertise} className='btn btn-sm btn-success'>Advertise</button>
+
+                                                }
 
                                             </td>
 

@@ -4,7 +4,8 @@ import { useNavigate } from 'react-router-dom';
 import SmartPhones from '../Phones/SmartPhones';
 import Advertisement from './Advertisement';
 import Mobiles from './Mobiles/Mobiles';
-
+import vidbg from '../Home/Waves - 70796.mp4'
+import { FaDove, FaGrinHearts, FaRunning, FaHeart } from "react-icons/fa";
 const Home = () => {
     const navigate = useNavigate()
 
@@ -29,7 +30,7 @@ const Home = () => {
 
 
     return (
-        <div>
+        <div className='container mx-auto'>
             <h1 className='text-4xl bg-black text-white mt-2 font-semibold uppercase '><span className='text-purple-400'>Wellcome</span> to Vintage resale market</h1>
             <p className='font-medium mb-5 uppercase underline text-2xl'><span className='text-purple-400'>May all </span> your heart desires be granted</p>
             <div>
@@ -72,7 +73,7 @@ const Home = () => {
                 <Advertisement></Advertisement>
             </div>
 
-            <div className='grid grid-cols-3'>
+            <div className='lg:grid grid-cols-3 container mx-auto'>
 
                 {
 
@@ -82,6 +83,70 @@ const Home = () => {
                 }
 
             </div>
+
+
+            <div>
+
+
+                <div className='mb-8 mt-8'>
+
+                    {/* .............................................about me section.................................................................. */}
+
+                    <div className="hero lg:min-h-screen container mx-auto shadow-2xl shadow-slate-800 text-white">
+                        <div className="hero-content text-center">
+                            <section className="p-6 my-6">
+                                <div className="container grid grid-cols-1 gap-6 mx-auto sm:grid-cols-2 xl:grid-cols-4">
+                                    <div className="flex p-4 space-x-4 rounded-lg md:space-x-6 ">
+                                        <div className="flex justify-center p-2 align-middle rounded-lg sm:p-4">
+                                            <FaDove className='text-5xl'></FaDove>
+                                        </div>
+                                        <div className="flex flex-col justify-center align-middle">
+                                            <p className="text-3xl font-semibold leading-none stat-value text-primary">100%</p>
+                                            <p className="capitalize">User Satisfaction</p>
+                                        </div>
+                                    </div>
+                                    <div className="flex p-4 space-x-4 rounded-lg md:space-x-6">
+                                        <div className="flex justify-center p-2 align-middle rounded-lg sm:p-4">
+                                            <FaGrinHearts className='text-5xl'></FaGrinHearts>
+                                        </div>
+                                        <div className="flex flex-col justify-center align-middle">
+                                            <p className="text-3xl font-semibold leading-none stat-figure text-secondary">60%</p>
+                                            <p className="capitalize">Repeat clients</p>
+                                        </div>
+                                    </div>
+                                    <div className="flex p-4 space-x-4 rounded-lg md:space-x-6">
+                                        <div className="flex justify-center p-2 align-middle rounded-lg sm:p-4 ">
+                                            <FaRunning className='text-5xl'></FaRunning>
+                                        </div>
+                                        <div className="flex flex-col justify-center align-middle ">
+                                            <p className="text-3xl font-semibold leading-none stat-figure text-warning">9000+</p>
+                                            <p className="capitalize">Product sold</p>
+                                        </div>
+                                    </div>
+                                    <div className="flex p-4 space-x-4 rounded-lg md:space-x-6 ">
+                                        <div className="flex justify-center p-2 align-middle rounded-lg sm:p-4 ">
+                                            <FaHeart className='text-5xl'></FaHeart>
+                                        </div>
+                                        <div className="flex flex-col justify-center align-middle">
+                                            <p className="text-3xl font-semibold leading-none stat-figure text-accent">2M</p>
+                                            <p className="capitalize">Followers</p>
+                                        </div>
+                                    </div>
+                                </div>
+                            </section>
+                        </div>
+
+                        <video src={vidbg} autoPlay loop muted></video>
+
+                    </div>
+
+
+
+                </div>
+
+
+            </div>
+
 
         </div>
     );

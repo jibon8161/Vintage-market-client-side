@@ -8,7 +8,7 @@ const CheckoutForm = ({ payment }) => {
     const [transectionId, settransectionId] = useState()
     const [processing, setProcessing] = useState(false)
 
-    const { productprice, productname, email } = payment
+    const { productprice, productname, email, productid } = payment
 
     const stripe = useStripe()
     const elements = useElements()
@@ -133,10 +133,48 @@ const CheckoutForm = ({ payment }) => {
                     settransectionId(paymentIntent.id)
                     toast.success('Congrats ! yor payment completed')
 
+
+
+
                 }
 
 
             })
+
+
+
+
+
+    }
+
+    const delbtn = id => {
+
+
+
+        console.log(id)
+
+        fetch(`http://localhost:5000/paid/${id}`, {
+
+
+            method: "PUT",
+
+
+
+        })
+            .then(res => res.json())
+            .then(data => {
+
+                if (data.modifiedCount > 0) {
+
+                    toast.success('seller verified')
+
+
+                }
+
+            })
+
+
+
 
 
     }
@@ -163,7 +201,7 @@ const CheckoutForm = ({ payment }) => {
                             },
                         }}
                     />
-                    <button className='btn btn-sm mt-4 btn-primary' type="submit" disabled={!stripe || !clientSecret || processing}>
+                    <button onClick={() => delbtn(productid)} className='btn btn-sm mt-4 btn-primary' type="submit" disabled={!stripe || !clientSecret || processing}>
 
                         Pay
                     </button>

@@ -1,7 +1,7 @@
 import React, { useContext } from 'react';
 import toast from 'react-hot-toast';
 import { InfoContext } from '../../AuthProvider/AuthContext';
-
+import { format } from 'date-fns';
 const BookinigModal = ({ mobile }) => {
 
     const { user } = useContext(InfoContext)
@@ -28,13 +28,14 @@ const BookinigModal = ({ mobile }) => {
             productname,
             productprice,
             phonenumber,
-            location
-
-
+            location,
+            bookingdate: format(new Date(), 'PP'),
+            productid: mobile._id
 
 
 
         }
+        console.log(booking)
 
         fetch('http://localhost:5000/booking', {
 
