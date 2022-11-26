@@ -17,7 +17,18 @@ const AddProducts = () => {
     useEffect(() => {
 
 
-        axios.get(`http://localhost:5000/usersByemail?email=${user.email}`)
+        axios.get(`http://localhost:5000/usersByemail?email=${user.email}`, {
+
+
+            headers: {
+
+                authorization: `Bearer ${localStorage.getItem('token')}`
+
+            }
+
+
+
+        })
             .then(data => setSeller(data.data))
 
 
@@ -81,8 +92,8 @@ const AddProducts = () => {
             method: "POST",
             headers: {
 
-                'content-type': 'application/json'
-
+                'content-type': 'application/json',
+                authorization: `Bearer ${localStorage.getItem('token')}`
             },
             body: JSON.stringify(products)
 
@@ -90,12 +101,33 @@ const AddProducts = () => {
 
         })
 
-            .then(res => res.json())
+            .then(res => {
+                return res.json()
+            })
+
             .then(data => {
-                console.log(data)
-                form.reset()
-                toast.success('product added')
-                navigate('/myproduct')
+
+                if (data.acknowledged) {
+
+
+                    console.log(data)
+                    form.reset()
+                    toast.success('product added')
+                    navigate('/myproduct')
+
+
+
+                }
+                else {
+
+
+                    toast.success('You have to be a seller for add products')
+
+
+                }
+
+
+
             })
 
 

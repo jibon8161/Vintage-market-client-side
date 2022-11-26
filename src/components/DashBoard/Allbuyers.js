@@ -94,7 +94,7 @@ const Allbuyers = () => {
                                     {
 
                                         buyers?.map((buyer, index) =>
-                                            <tr className="border-b border-opacity-20 dark:border-gray-700 dark:bg-gray-900 mt-5 font-semibold">
+                                            <tr key={index} className="border-b border-opacity-20 dark:border-gray-700 dark:bg-gray-900 mt-5 font-semibold">
                                                 <th>{index + 1}</th>
                                                 <td> {buyer.name}</td>
                                                 <td>{buyer.email}</td>

@@ -1,12 +1,13 @@
 import { useQuery } from '@tanstack/react-query';
 import React, { useContext, useEffect } from 'react';
+import toast from 'react-hot-toast';
 import { InfoContext } from '../AuthProvider/AuthContext';
 
 const MyProducts = () => {
 
     const { user } = useContext(InfoContext)
 
-    const { data: myproducts = [], isLoading } = useQuery({
+    const { data: myproducts = [], isLoading, refetch } = useQuery({
 
 
         queryKey: ['email'],
@@ -16,6 +17,44 @@ const MyProducts = () => {
 
 
     })
+
+
+    const deleteBtn = id => {
+
+
+
+        console.log(id)
+        const proceed = window.confirm('are u sure that you want to delete this product?')
+
+        if (proceed) {
+
+
+            fetch(`http://localhost:5000/delproduct/${id}`, {
+
+                method: 'DELETE',
+
+            })
+
+                .then(res => res.json())
+                .then(data => {
+
+                    console.log(data)
+                    if (data.deletedCount > 0) {
+
+                        toast.error('deleted successfully')
+                        refetch()
+
+                    }
+
+
+
+                })
+        }
+
+
+
+    }
+
 
     console.log(myproducts)
     return (
@@ -36,6 +75,7 @@ const MyProducts = () => {
                                     <th className="p-3">Category</th>
                                     <th className="p-3">Price</th>
                                     <th className="p-3">Status</th>
+                                    <th className="p-3">Action</th>
 
                                 </tr>
                             </thead>
@@ -43,15 +83,16 @@ const MyProducts = () => {
                                 {
 
                                     myproducts?.map((myproduct, index) =>
-                                        <tr className="border-b border-opacity-20 dark:border-gray-700 dark:bg-gray-900 mt-5 font-semibold">
+                                        <tr key={index} className="border-b border-opacity-20 dark:border-gray-700 dark:bg-gray-900 mt-5 font-semibold">
                                             <th>{index + 1}</th>
                                             <td> {myproduct.pname}</td>
                                             <td>{myproduct.category}</td>
                                             <td>{myproduct.askingprice} </td>
                                             <td>sold</td>
+                                            <td><button className='btn btn-sm btn-warning' onClick={() => deleteBtn(myproduct._id)}>Delete</button></td>
                                             <td>
 
-                                                <button className='btn btn-sm btn-warning'>Advertise</button>
+                                                <button className='btn btn-sm btn-success'>Advertise</button>
 
                                             </td>
 

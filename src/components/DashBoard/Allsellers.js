@@ -26,7 +26,7 @@ const Allsellers = () => {
 
         console.log(id)
 
-        const proceed = window.confirm('are u sure that you want to delete your review?')
+        const proceed = window.confirm('are u sure that you want to delete this seller?')
 
         if (proceed) {
 
@@ -64,6 +64,7 @@ const Allsellers = () => {
 
 
             method: "PUT",
+
 
 
         })

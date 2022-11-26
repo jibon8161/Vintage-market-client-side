@@ -36,7 +36,7 @@ const Register = () => {
                 }
 
 
-                fetch('https://memorable-journey-tourist-service-server.vercel.app/jwt', {
+                fetch('http://localhost:5000/jwt', {
 
 
                     method: "POST",
