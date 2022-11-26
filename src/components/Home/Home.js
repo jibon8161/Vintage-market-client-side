@@ -11,11 +11,26 @@ const Home = () => {
 
 
 
+
+
+
     const { data: categorynames = [], isLoading } = useQuery({
 
 
-        queryKey: ['email'],
+        queryKey: ['categoryname'],
         queryFn: () => fetch('http://localhost:5000/categoryname')
+            .then(res => res.json())
+
+
+
+    })
+
+
+    const { data: advertise = [], } = useQuery({
+
+
+        queryKey: ['advertise'],
+        queryFn: () => fetch('http://localhost:5000/advertise')
             .then(res => res.json())
 
 
@@ -25,7 +40,7 @@ const Home = () => {
 
 
 
-    console.log(categorynames)
+    console.log(advertise)
 
 
 
