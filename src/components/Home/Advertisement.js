@@ -8,9 +8,11 @@ const Advertisement = ({ adds }) => {
 
             {
 
-                !adds.status &&
-                <div className="card w-96 bg-base-100 shadow-xl image-full">
-                    <figure><img src='' alt="Shoes" /></figure>
+
+                adds?.isadvertise && !adds.status &&
+                
+                <div className="card lg:w-96 bg-base-100 shadow-xl image-full container">
+                    <figure><img src={adds.purl} alt="Shoes" /></figure>
                     <div className="card-body">
                         <h2 className="card-title">{adds.pname}</h2>
                         <p>If a dog chews shoes whose shoes does he choose?</p>

@@ -66,7 +66,7 @@ const Allbuyers = () => {
             <div>
                 {
 
-                    buyers && <div className="container p-5 mx-auto sm:p-4 dark:text-gray-100 ">
+                    buyers && <div className="container p-5 mx-auto sm:p-4 dark:text-gray-100 mb-8 ">
                         <h2 className="mb-4 text-2xl font-semibold leading-tight">All Buyers</h2>
                         <div className="overflow-x-auto mb-5">
                             <table className="min-w-full text-xs">

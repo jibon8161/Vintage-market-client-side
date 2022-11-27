@@ -76,7 +76,8 @@ const AddProducts = () => {
             condition, category, date,
             sellerName,
             sellerEmail,
-            sellerstatus: sellers[0]?.status
+            sellerstatus: sellers[0]?.status,
+            isadvertise: false
 
 
 
@@ -136,15 +137,15 @@ const AddProducts = () => {
 
 
     return (
-        <div>
-            <div className=''>
+        <div className='overflow-x-hidden'>
+            <div className='lg:mb-0 mb-24 '>
                 <div className="hero">
                     <div className="hero-content flex-col lg:flex-row-reverse">
                         <div className="text-center lg:text-left">
 
 
                         </div>
-                        <div className="card flex-shrink-0 shadow-2xl bg-base-100 ">
+                        <div className="card flex-shrink-0 shadow-2xl bg-base-100  ">
                             <form onSubmit={handleSubmit} className="card-body lg:w-[500px] mx-auto">
                                 <div className="form-control">
                                     <label className="label">

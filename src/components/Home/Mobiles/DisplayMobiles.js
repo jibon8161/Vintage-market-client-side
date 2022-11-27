@@ -25,7 +25,7 @@ const wishlist=()=>{
 
                 !mobile.status &&
 
-                <div className=" flex flex-col max-w-lg p-6 space-y-6 overflow-hidden rounded-lg shadow-md dark:bg-gray-900 dark:text-gray-100 mb-24">
+                <div className=" flex flex-col max-w-lg p-6 space-y-6 overflow-hidden rounded-lg shadow-md dark:bg-gray-900 dark:text-gray-100 mb-32">
                     <div className="flex space-x-4">
                         {
 

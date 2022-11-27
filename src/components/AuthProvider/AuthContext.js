@@ -9,7 +9,7 @@ const AuthContext = ({ children }) => {
     const [user, setUser] = useState()
     const [loader, setLoader] = useState(true)
     const [mobiles, setMobiles] = useState([])
- 
+    const [advertiseproduct, setAdvertiseProduct] = useState([])
 
     const createUser = (email, pass) => {
 
@@ -96,7 +96,8 @@ const AuthContext = ({ children }) => {
         loader,
         mobiles,
         setMobiles,
-    
+        advertiseproduct, 
+        setAdvertiseProduct,
 
 
 

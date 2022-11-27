@@ -13,6 +13,7 @@ const DashBoardLayout = () => {
 
     const [users, setUsers] = useState({})
 
+    const [loading, setLoading] = useState(true)
 
 
     useEffect(() => {
@@ -47,7 +48,7 @@ const DashBoardLayout = () => {
                     setUsers(data)
 
 
-                    // setLoader(false)
+                    setLoading(false)
                 })
 
 
@@ -64,42 +65,48 @@ const DashBoardLayout = () => {
     return (
         <div>
             <Navbar></Navbar>
-            <div className="drawer drawer-mobile lg:w-9/12">
-                <input id="userPanel" type="checkbox" className="drawer-toggle" />
-                <div className="drawer-content">
-                    <Outlet></Outlet>
-                </div>
-                <div className="drawer-side">
-                    <label htmlFor="userPanel" className="drawer-overlay"></label>
-                    <ul className="menu p-4 w-80 bg-base-100 text-base-content">
+            {
 
-                        {
-                            users?.[0]?.role === 'user' &&
-                            <>
-                                <li><Link to='/dashboard/user'>My orders</Link></li>
-                                <li><Link to='/dashboard/wishlist'>My WishList</Link></li>
-                            </>
+                loading ? <div className="w-32 h-32 border-4 border-dashed rounded-full animate-spin mx-auto mt-32 mb-32 border-red-600"></div>
+                    :
 
-                        }
+                    <div className="drawer drawer-mobile lg:w-9/12">
+                        <input id="userPanel" type="checkbox" className="drawer-toggle" />
+                        <div className="drawer-content">
+                            <Outlet></Outlet>
+                        </div>
+                        <div className="drawer-side">
+                            <label htmlFor="userPanel" className="drawer-overlay"></label>
+                            <ul className="menu p-4 w-80 bg-base-100 text-base-content">
 
-                        {
-                            users?.[0]?.role === 'seller' &&
-                            <li><Link to='/dashboard/addproducts'>Add A product </Link></li>
+                                {
+                                    users?.[0]?.role === 'user' &&
+                                    <>
+                                        <li><Link to='/dashboard/user'>My orders</Link></li>
+                                        <li><Link to='/dashboard/wishlist'>My WishList</Link></li>
+                                    </>
 
-                        }
-                        {
-                            users?.[0]?.role === 'admin' &&
-                            <>
-                                <li><Link to='/dashboard/allsellers'>All Sellers </Link></li>
-                                <li><Link to='/dashboard/allbuyers'>All Buyers  </Link></li>
-                            </>
+                                }
 
-                        }
+                                {
+                                    users?.[0]?.role === 'seller' &&
+                                    <li><Link to='/dashboard/addproducts'>Add A product </Link></li>
 
-                    </ul>
+                                }
+                                {
+                                    users?.[0]?.role === 'admin' &&
+                                    <>
+                                        <li><Link to='/dashboard/allsellers'>All Sellers </Link></li>
+                                        <li><Link to='/dashboard/allbuyers'>All Buyers  </Link></li>
+                                    </>
 
-                </div>
-            </div>
+                                }
+
+                            </ul>
+
+                        </div>
+                    </div>
+            }
             <Footer></Footer>
         </div>
     );

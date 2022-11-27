@@ -140,7 +140,7 @@ export const Navbar = () => {
                                 />
                             </svg>
                         </button>
-                        <label htmlFor="userPanel" className="btn btn-primary drawer-button lg:hidden">Open drawer</label>
+                        <label htmlFor="userPanel" className="btn btn-primary drawer-button lg:hidden">Dash Board</label>
                         {isMenuOpen && (
                             <div className="absolute top-0 left-0 w-full">
                                 <div className="p-5 bg-white border rounded shadow-sm">
@@ -168,7 +168,7 @@ export const Navbar = () => {
                                                     <rect x="14" y="11" width="7" height="12" />
                                                 </svg>
                                                 <span className="ml-2 text-xl font-bold tracking-wide text-gray-800 uppercase">
-                                                    Company
+                                                VINTAGE RESALE MARKET
                                                 </span>
                                             </NavLink>
                                         </div>
@@ -197,47 +197,28 @@ export const Navbar = () => {
                                                     title="Our product"
                                                     className="font-medium tracking-wide text-gray-700 transition-colors duration-200 hover:text-deep-purple-accent-400"
                                                 >
-                                                    Product
+                                                   Home
                                                 </NavLink>
                                             </li>
                                             <li>
                                                 <NavLink
-                                                    to="/"
+                                                    to="/blog"
                                                     aria-label="Our product"
                                                     title="Our product"
                                                     className="font-medium tracking-wide text-gray-700 transition-colors duration-200 hover:text-deep-purple-accent-400"
                                                 >
-                                                    Features
+                                                   Blog
                                                 </NavLink>
                                             </li>
-                                            <li>
-                                                <NavLink
-                                                    to="/"
-                                                    aria-label="Product pricing"
-                                                    title="Product pricing"
-                                                    className="font-medium tracking-wide text-gray-700 transition-colors duration-200 hover:text-deep-purple-accent-400"
-                                                >
-                                                    Pricing
-                                                </NavLink>
-                                            </li>
-                                            <li>
-                                                <NavLink
-                                                    to="/"
-                                                    aria-label="About us"
-                                                    title="About us"
-                                                    className="font-medium tracking-wide text-gray-700 transition-colors duration-200 hover:text-deep-purple-accent-400"
-                                                >
-                                                    About us
-                                                </NavLink>
-                                            </li>
+
                                             {user && user?.uid ? <>
-                                                <button onClick={SignOut} className=" font-medium tracking-wide text-gray-100 transition-colors duration-200 hover:text-teal-accent-400">LogOut</button>
+                                                <button onClick={SignOut} className=" font-medium tracking-wide text-black transition-colors duration-200 hover:text-teal-accent-400">LogOut</button>
                                                 <li>
                                                     <NavLink
                                                         to="/dashboard"
                                                         aria-label="Sign in"
                                                         title="Sign in"
-                                                        className="font-medium tracking-wide text-gray-100 transition-colors duration-200 hover:text-teal-accent-400"
+                                                        className="font-medium tracking-wide text-black transition-colors duration-200 hover:text-teal-accent-400"
                                                     >
                                                         DashBoard
                                                     </NavLink>
@@ -253,7 +234,7 @@ export const Navbar = () => {
                                                             to="/login"
                                                             aria-label="Sign in"
                                                             title="Sign in"
-                                                            className="font-medium tracking-wide text-gray-100 transition-colors duration-200 hover:text-teal-accent-400"
+                                                            className="font-medium tracking-wide text-black transition-colors duration-200 hover:text-teal-accent-400"
                                                         >
                                                             Sign in
                                                         </NavLink>

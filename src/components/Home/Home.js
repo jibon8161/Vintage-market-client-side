@@ -1,18 +1,19 @@
 import { useQuery } from '@tanstack/react-query';
-import React from 'react';
+import React, { useContext, useEffect, useState } from 'react';
 
-
-import Advertisement from './Advertisement';
 import Mobiles from './Mobiles/Mobiles';
-import vidbg from '../Home/Waves - 70796.mp4'
+
 import { FaDove, FaGrinHearts, FaRunning, FaHeart } from "react-icons/fa";
 import Steps from './Steps';
+import { InfoContext } from '../AuthProvider/AuthContext';
+import axios from 'axios';
+import Advertisement from './Advertisement';
 
 
 const Home = () => {
 
 
-
+    const [advertiseproduct, setAdvertiseProduct] = useState()
 
     const { data: categorynames = [], isLoading } = useQuery({
 
@@ -25,18 +26,31 @@ const Home = () => {
 
     })
 
-    const { data: advertise = [], } = useQuery({
-
-
-        queryKey: ['advertise'],
-        queryFn: () => fetch('http://localhost:5000/advertise')
-            .then(res => res.json())
 
 
 
-    })
+    useEffect(() => {
 
-    console.log(advertise._id)
+
+        axios.get(`http://localhost:5000/allproducts`, {
+
+
+            headers: {
+
+                authorization: `Bearer ${localStorage.getItem('token')}`
+
+            }
+
+
+
+        })
+            .then(data => setAdvertiseProduct(data.data))
+
+
+
+
+    }, [])
+
 
 
 
@@ -84,7 +98,7 @@ const Home = () => {
             <div className='lg:ml-5 mt-5 lg:grid grid-cols-3 container '>
                 {
 
-                    advertise.map(adds => <Advertisement key={adds._id} adds={adds}></Advertisement>)
+                    advertiseproduct?.map(adds => <Advertisement key={adds._id} adds={adds}></Advertisement>)
 
 
                 }
@@ -114,10 +128,10 @@ const Home = () => {
             <div>
 
 
-                <div className='mb-24 mt-8'>
+                <div className='lg:mb-24 mt-8 mb-32'>
 
 
-                    <section className="p-6 my-6 ">
+                    <section className="p-6 my-6 lg:mb-0 ">
                         <div className="container grid grid-cols-1 gap-6 mx-auto sm:grid-cols-2 xl:grid-cols-4">
                             <div className="flex p-4 space-x-4 rounded-lg md:space-x-6 border border-indigo-600 bg-gray-900">
                                 <div className="flex justify-center p-2 align-middle rounded-lg sm:p-4">

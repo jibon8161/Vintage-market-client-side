@@ -1,6 +1,6 @@
 import { useQuery } from '@tanstack/react-query';
-import { isDisabled } from '@testing-library/user-event/dist/utils';
-import React, { useContext, useEffect, useRef } from 'react';
+
+import React, { useContext } from 'react';
 import toast from 'react-hot-toast';
 import { InfoContext } from '../AuthProvider/AuthContext';
 
@@ -61,69 +61,26 @@ const MyProducts = () => {
 
     const advertise = product => {
 
-
         console.log(product)
+        fetch(`http://localhost:5000/advertise/${product}`, {
 
-        fetch(`http://localhost:5000/advertiseitem/${product}`)
+
+            method: "PUT",
+
+
+
+        })
             .then(res => res.json())
             .then(data => {
 
-                console.log(data)
+                if (data.modifiedCount > 0) {
 
-                const addsdata = {
-
-
-                    pid: data._id,
-                    askingprice: data.askingprice,
-                    category: data.category,
-                    condition: data.condition,
-                    date: data.date,
-                    details: data.details,
-                    location: data.location,
-                    orginalprice: data.orginalprice,
-                    pname: data.pname,
-                    purl: data.purl,
-                    purchaseyear: data.purchaseyear,
-                    sellerName: data.sellerName,
-                    sellerstatus: data.sellerstatus,
-                    usagetime: data.usagetime,
-
-
-
-
-
+                    toast.success('Advertise Success')
+                   
 
                 }
 
-                fetch('http://localhost:5000/advertise', {
-
-
-                    method: "POST",
-                    headers: {
-
-                        'content-type': 'application/json'
-
-                    },
-                    body: JSON.stringify(addsdata)
-
-
-
-                })
-
-                    .then(res => res.json())
-                    .then(data => {
-                        console.log(data)
-                        toast.success('Advertise successfully done')
-
-                    })
-                    .catch(err => console.log(err))
-
-
-
             })
-
-
-
 
 
 
