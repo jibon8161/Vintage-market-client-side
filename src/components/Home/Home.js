@@ -94,8 +94,8 @@ const Home = () => {
 
             </div>
 
-            <h1 className='text-center mt-8 text-5xl font-bold uppercase underline mb-5'><span className='text-purple-500'>Adv</span>ertise</h1>
-            <div className='lg:ml-5 mt-5 lg:grid grid-cols-3 container '>
+            <h1 className='text-center mt-8 text-5xl font-bold uppercase underline mb-5 mx-auto'><span className='text-purple-500'> Our</span> Hot Products</h1>
+            <div className='lg:ml-5 mt-5 lg:grid grid-cols-3 container mx-auto '>
                 {
 
                     advertiseproduct?.map(adds => <Advertisement key={adds._id} adds={adds}></Advertisement>)

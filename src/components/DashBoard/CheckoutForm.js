@@ -187,7 +187,8 @@ const CheckoutForm = ({ payment }) => {
                                     fontSize: '16px',
                                     color: '#424770',
                                     '::placeholder': {
-                                        color: '#aab7c4',
+                                        color: '#aab7c4',       
+                                        
                                     },
                                 },
                                 invalid: {

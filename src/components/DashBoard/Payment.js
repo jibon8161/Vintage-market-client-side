@@ -1,9 +1,9 @@
 import React from 'react';
-import { useLoaderData } from 'react-router-dom';
+import { useLoaderData, useNavigation } from 'react-router-dom';
 import { loadStripe } from '@stripe/stripe-js';
 import { Elements } from '@stripe/react-stripe-js';
 import CheckoutForm from './CheckoutForm';
-import { useNavigation } from 'react-day-picker';
+
 
 const stripePromise = loadStripe(process.env.REACT_APP_STRIPE_KEY);
 // const stripePromise = loadStripe('pk_test_51M67EgIZhyRs9b7lTmlXBQ8QvGeWgqVG96Wl8itRhnMWB5TKyOG2Iq2rXdYQYubZHFX29xnophCfq0mkdPSUrrVJ00dSIPfeEo')
