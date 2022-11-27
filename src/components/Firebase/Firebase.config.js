@@ -5,12 +5,12 @@ import { initializeApp } from "firebase/app";
 
 // Your web app's Firebase configuration
 const firebaseConfig = {
-    apiKey: "AIzaSyDxTQPOcguTc5gqpbOcV807AwfsIz6vJLQ",
-    authDomain: "vintage-resale-market.firebaseapp.com",
-    projectId: "vintage-resale-market",
-    storageBucket: "vintage-resale-market.appspot.com",
-    messagingSenderId: "1005756463007",
-    appId: "1:1005756463007:web:3f688497e5a5aafe7e6faa"
+    apiKey: process.env.REACT_APP_apiKey,
+    authDomain: process.env.REACT_APP_authDomain,
+    projectId: process.env.REACT_APP_projectId,
+    storageBucket: process.env.REACT_APP_storageBucket,
+    messagingSenderId: process.env.REACT_APP_messagingSenderId,
+    appId: process.env.REACT_APP_appId,
 };
 
 // Initialize Firebase

@@ -19,7 +19,7 @@ export const Navbar = () => {
     }
 
     return (
-        <div className="bg-gradient-to-r from-purple-400 to-purple-700 shadow-2xl ">
+        <div className="bg-gradient-to-r from-purple-400 to-purple-700 shadow-2xl sticky top-0 z-50 ">
             <div className="px-4 py-5 mx-auto sm:max-w-xl md:max-w-full lg:max-w-screen-xl md:px-24 lg:px-8">
                 <div className="relative flex items-center justify-between">
                     <div className="flex items-center">
@@ -71,16 +71,7 @@ export const Navbar = () => {
                                 </NavLink>
                             </li>
 
-                            <li>
-                                <NavLink
-                                    to="/"
-                                    aria-label="About us"
-                                    title="About us"
-                                    className="font-medium tracking-wide text-gray-100 transition-colors duration-200 hover:text-teal-accent-400"
-                                >
-                                    About us
-                                </NavLink>
-                            </li>
+
                         </ul>
                     </div>
                     <ul className="flex items-center hidden  space-x-8 lg:flex">
@@ -239,26 +230,48 @@ export const Navbar = () => {
                                                     About us
                                                 </NavLink>
                                             </li>
-                                            <li>
-                                                <NavLink
-                                                    to="/"
-                                                    aria-label="Sign in"
-                                                    title="Sign in"
-                                                    className="font-medium tracking-wide text-gray-700 transition-colors duration-200 hover:text-deep-purple-accent-400"
-                                                >
-                                                    Sign in
-                                                </NavLink>
-                                            </li>
-                                            <li>
-                                                <NavLink
-                                                    to="/"
-                                                    className="inline-flex items-center justify-center w-full h-12 px-6 font-medium tracking-wide text-white transition duration-200 rounded shadow-md bg-deep-purple-accent-400 hover:bg-deep-purple-accent-700 focus:shadow-outline focus:outline-none"
-                                                    aria-label="Sign up"
-                                                    title="Sign up"
-                                                >
-                                                    Sign up
-                                                </NavLink>
-                                            </li>
+                                            {user && user?.uid ? <>
+                                                <button onClick={SignOut} className=" font-medium tracking-wide text-gray-100 transition-colors duration-200 hover:text-teal-accent-400">LogOut</button>
+                                                <li>
+                                                    <NavLink
+                                                        to="/dashboard"
+                                                        aria-label="Sign in"
+                                                        title="Sign in"
+                                                        className="font-medium tracking-wide text-gray-100 transition-colors duration-200 hover:text-teal-accent-400"
+                                                    >
+                                                        DashBoard
+                                                    </NavLink>
+                                                </li>
+
+                                            </>
+                                                :
+
+                                                <>
+
+                                                    <li>
+                                                        <NavLink
+                                                            to="/login"
+                                                            aria-label="Sign in"
+                                                            title="Sign in"
+                                                            className="font-medium tracking-wide text-gray-100 transition-colors duration-200 hover:text-teal-accent-400"
+                                                        >
+                                                            Sign in
+                                                        </NavLink>
+                                                    </li>
+                                                    <li>
+                                                        <NavLink
+                                                            to="/register"
+                                                            className="inline-flex items-center justify-center h-12 px-6 font-medium tracking-wide text-white transition duration-200 rounded shadow-md bg-deep-purple-accent-400 hover:bg-deep-purple-accent-700 focus:shadow-outline focus:outline-none"
+                                                            aria-label="Sign up"
+                                                            title="Sign up"
+                                                        >
+                                                            Sign up
+                                                        </NavLink>
+                                                    </li>
+                                                </>
+
+
+                                            }
                                         </ul>
                                     </nav>
                                 </div>

@@ -72,7 +72,7 @@ const DashBoard = () => {
                         {
 
                             mybooking.map((booking, index) =>
-                                <tr className="border-b border-opacity-20 dark:border-gray-700 dark:bg-gray-900 mt-5 font-semibold">
+                                <tr key={index} className="border-b border-opacity-20 dark:border-gray-700 dark:bg-gray-900 mt-5 font-semibold">
                                     <th>{index + 1}</th>
                                     <td><div className="avatar">
                                         <div className="w-12 rounded-full ring ring-primary ring-offset-base-100 ring-offset-2">

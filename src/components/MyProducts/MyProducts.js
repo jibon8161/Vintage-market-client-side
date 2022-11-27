@@ -1,12 +1,14 @@
 import { useQuery } from '@tanstack/react-query';
 import { isDisabled } from '@testing-library/user-event/dist/utils';
-import React, { useContext, useEffect } from 'react';
+import React, { useContext, useEffect, useRef } from 'react';
 import toast from 'react-hot-toast';
 import { InfoContext } from '../AuthProvider/AuthContext';
 
 const MyProducts = () => {
 
     const { user } = useContext(InfoContext)
+
+
 
     const { data: myproducts = [], isLoading, refetch } = useQuery({
 
@@ -60,28 +62,66 @@ const MyProducts = () => {
     const advertise = product => {
 
 
-        fetch('http://localhost:5000/advertise', {
+        console.log(product)
 
-
-            method: "POST",
-            headers: {
-
-                'content-type': 'application/json'
-
-            },
-            body: JSON.stringify(product)
-
-
-
-        })
-
+        fetch(`http://localhost:5000/advertiseitem/${product}`)
             .then(res => res.json())
             .then(data => {
+
                 console.log(data)
-                toast.success('Advertise successfully done')
+
+                const addsdata = {
+
+
+                    pid: data._id,
+                    askingprice: data.askingprice,
+                    category: data.category,
+                    condition: data.condition,
+                    date: data.date,
+                    details: data.details,
+                    location: data.location,
+                    orginalprice: data.orginalprice,
+                    pname: data.pname,
+                    purl: data.purl,
+                    purchaseyear: data.purchaseyear,
+                    sellerName: data.sellerName,
+                    sellerstatus: data.sellerstatus,
+                    usagetime: data.usagetime,
+
+
+
+
+
+
+                }
+
+                fetch('http://localhost:5000/advertise', {
+
+
+                    method: "POST",
+                    headers: {
+
+                        'content-type': 'application/json'
+
+                    },
+                    body: JSON.stringify(addsdata)
+
+
+
+                })
+
+                    .then(res => res.json())
+                    .then(data => {
+                        console.log(data)
+                        toast.success('Advertise successfully done')
+
+                    })
+                    .catch(err => console.log(err))
+
+
 
             })
-            .catch(err => console.log(err))
+
 
 
 
@@ -92,7 +132,10 @@ const MyProducts = () => {
     }
 
 
-    console.log(myproducts)
+
+
+
+
     return (
         <div>
 
@@ -112,6 +155,7 @@ const MyProducts = () => {
                                     <th className="p-3">Price</th>
                                     <th className="p-3">Status</th>
                                     <th className="p-3">Action</th>
+                                    <th className="p-3">Advertise</th>
 
                                 </tr>
                             </thead>
@@ -136,7 +180,7 @@ const MyProducts = () => {
 
                                                 {
 
-                                                    myproduct.status ? "Already sold" : <button onClick={() => advertise(myproduct)} className='btn btn-sm btn-success'>Advertise</button>
+                                                    myproduct.status ? "Already Sold" : <button onClick={() => advertise(myproduct._id)} className='btn btn-sm btn-success'>Advertise</button>
 
                                                 }
 

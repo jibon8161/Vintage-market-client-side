@@ -5,6 +5,7 @@ import Allbuyers from "../DashBoard/Allbuyers";
 import Allsellers from "../DashBoard/Allsellers";
 import DashBoard from "../DashBoard/DashBoard";
 import Payment from "../DashBoard/Payment";
+import WishList from "../DashBoard/WishList";
 import Error from "../Error page/Error";
 import Home from "../Home/Home";
 import AllMobiles from "../Home/Mobiles/AllMobiles";
@@ -93,6 +94,12 @@ export const router = createBrowserRouter([
 
                 path: '/dashboard/allbuyers',
                 element: <Allbuyers></Allbuyers>
+
+            },
+            {
+
+                path: '/dashboard/wishlist',
+                element: <WishList></WishList>
 
             },
             {

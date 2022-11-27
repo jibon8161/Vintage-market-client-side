@@ -147,7 +147,7 @@ const CheckoutForm = ({ payment }) => {
 
     }
 
-    const delbtn = id => {
+    const putbtn = id => {
 
 
 
@@ -164,12 +164,7 @@ const CheckoutForm = ({ payment }) => {
             .then(res => res.json())
             .then(data => {
 
-                if (data.modifiedCount > 0) {
-
-                    toast.success('seller verified')
-
-
-                }
+                console.log(data)
 
             })
 
@@ -201,7 +196,7 @@ const CheckoutForm = ({ payment }) => {
                             },
                         }}
                     />
-                    <button onClick={() => delbtn(productid)} className='btn btn-sm mt-4 btn-primary' type="submit" disabled={!stripe || !clientSecret || processing}>
+                    <button onClick={() => putbtn(productid)} className='btn btn-sm mt-4 btn-primary' type="submit" disabled={!stripe || !clientSecret || processing}>
 
                         Pay
                     </button>

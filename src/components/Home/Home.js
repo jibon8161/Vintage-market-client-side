@@ -1,15 +1,15 @@
 import { useQuery } from '@tanstack/react-query';
 import React from 'react';
-import { useNavigate } from 'react-router-dom';
-import SmartPhones from '../Phones/SmartPhones';
+
+
 import Advertisement from './Advertisement';
 import Mobiles from './Mobiles/Mobiles';
 import vidbg from '../Home/Waves - 70796.mp4'
 import { FaDove, FaGrinHearts, FaRunning, FaHeart } from "react-icons/fa";
+import Steps from './Steps';
+
+
 const Home = () => {
-    const navigate = useNavigate()
-
-
 
 
 
@@ -25,7 +25,6 @@ const Home = () => {
 
     })
 
-
     const { data: advertise = [], } = useQuery({
 
 
@@ -37,10 +36,7 @@ const Home = () => {
 
     })
 
-
-
-
-    console.log(advertise)
+    console.log(advertise._id)
 
 
 
@@ -84,13 +80,22 @@ const Home = () => {
 
             </div>
 
-            <div className='mt-5'>
-                <Advertisement></Advertisement>
+            <h1 className='text-center mt-8 text-5xl font-bold uppercase underline mb-5'><span className='text-purple-500'>Adv</span>ertise</h1>
+            <div className='lg:ml-5 mt-5 lg:grid grid-cols-3 container '>
+                {
+
+                    advertise.map(adds => <Advertisement key={adds._id} adds={adds}></Advertisement>)
+
+
+                }
+
             </div>
 
-            <div className='lg:grid grid-cols-3 container mx-auto'>
+            <h1 className='text-center mt-8 text-5xl font-bold uppercase underline'><span className='text-purple-500'>Select </span>Your Category</h1>
+            <div className='lg:grid grid-cols-3 container mx-auto mt-8'>
 
                 {
+
 
                     categorynames.map(category => <Mobiles key={category._id} category={category}></Mobiles>)
 
@@ -100,60 +105,58 @@ const Home = () => {
             </div>
 
 
+            <div className='mt-8'>
+
+                <Steps></Steps>
+            </div>
+
+
             <div>
 
 
-                <div className='mb-8 mt-8'>
+                <div className='mb-24 mt-8'>
 
-                    {/* .............................................about me section.................................................................. */}
 
-                    <div className="hero lg:min-h-screen container mx-auto shadow-2xl shadow-slate-800 text-white">
-                        <div className="hero-content text-center">
-                            <section className="p-6 my-6">
-                                <div className="container grid grid-cols-1 gap-6 mx-auto sm:grid-cols-2 xl:grid-cols-4">
-                                    <div className="flex p-4 space-x-4 rounded-lg md:space-x-6 ">
-                                        <div className="flex justify-center p-2 align-middle rounded-lg sm:p-4">
-                                            <FaDove className='text-5xl'></FaDove>
-                                        </div>
-                                        <div className="flex flex-col justify-center align-middle">
-                                            <p className="text-3xl font-semibold leading-none stat-value text-primary">100%</p>
-                                            <p className="capitalize">User Satisfaction</p>
-                                        </div>
-                                    </div>
-                                    <div className="flex p-4 space-x-4 rounded-lg md:space-x-6">
-                                        <div className="flex justify-center p-2 align-middle rounded-lg sm:p-4">
-                                            <FaGrinHearts className='text-5xl'></FaGrinHearts>
-                                        </div>
-                                        <div className="flex flex-col justify-center align-middle">
-                                            <p className="text-3xl font-semibold leading-none stat-figure text-secondary">60%</p>
-                                            <p className="capitalize">Repeat clients</p>
-                                        </div>
-                                    </div>
-                                    <div className="flex p-4 space-x-4 rounded-lg md:space-x-6">
-                                        <div className="flex justify-center p-2 align-middle rounded-lg sm:p-4 ">
-                                            <FaRunning className='text-5xl'></FaRunning>
-                                        </div>
-                                        <div className="flex flex-col justify-center align-middle ">
-                                            <p className="text-3xl font-semibold leading-none stat-figure text-warning">9000+</p>
-                                            <p className="capitalize">Product sold</p>
-                                        </div>
-                                    </div>
-                                    <div className="flex p-4 space-x-4 rounded-lg md:space-x-6 ">
-                                        <div className="flex justify-center p-2 align-middle rounded-lg sm:p-4 ">
-                                            <FaHeart className='text-5xl'></FaHeart>
-                                        </div>
-                                        <div className="flex flex-col justify-center align-middle">
-                                            <p className="text-3xl font-semibold leading-none stat-figure text-accent">2M</p>
-                                            <p className="capitalize">Followers</p>
-                                        </div>
-                                    </div>
+                    <section className="p-6 my-6 ">
+                        <div className="container grid grid-cols-1 gap-6 mx-auto sm:grid-cols-2 xl:grid-cols-4">
+                            <div className="flex p-4 space-x-4 rounded-lg md:space-x-6 border border-indigo-600 bg-gray-900">
+                                <div className="flex justify-center p-2 align-middle rounded-lg sm:p-4">
+                                    <FaDove className='text-5xl text-green-600'></FaDove>
                                 </div>
-                            </section>
+                                <div className="flex flex-col justify-center align-middle">
+                                    <p className="text-3xl font-semibold leading-none stat-value text-primary">100%</p>
+                                    <p className="capitalize text-white">User Satisfaction</p>
+                                </div>
+                            </div>
+                            <div className="flex p-4 space-x-4 rounded-lg md:space-x-6  border border-indigo-600 bg-gray-900">
+                                <div className="flex justify-center p-2 align-middle rounded-lg sm:p-4">
+                                    <FaGrinHearts className='text-5xl text-red-500'></FaGrinHearts>
+                                </div>
+                                <div className="flex flex-col justify-center align-middle">
+                                    <p className="text-3xl font-semibold leading-none stat-figure text-secondary">60%</p>
+                                    <p className="capitalize text-white">Repeat clients</p>
+                                </div>
+                            </div>
+                            <div className="flex p-4 space-x-4 rounded-lg md:space-x-6 border border-indigo-600 bg-gray-900">
+                                <div className="flex justify-center p-2 align-middle rounded-lg sm:p-4 ">
+                                    <FaRunning className='text-5xl text-violet-600'></FaRunning>
+                                </div>
+                                <div className="flex flex-col justify-center align-middle ">
+                                    <p className="text-3xl font-semibold leading-none stat-figure text-warning">9000+</p>
+                                    <p className="capitalize text-white">Product sold</p>
+                                </div>
+                            </div>
+                            <div className="flex p-4 space-x-4 rounded-lg md:space-x-6  border-indigo-600 bg-gray-900">
+                                <div className="flex justify-center p-2 align-middle rounded-lg sm:p-4 ">
+                                    <FaHeart className='text-5xl text-yellow-400'></FaHeart>
+                                </div>
+                                <div className="flex flex-col justify-center align-middle">
+                                    <p className="text-3xl font-semibold leading-none stat-figure text-accent">2M</p>
+                                    <p className="capitalize text-white">Followers</p>
+                                </div>
+                            </div>
                         </div>
-
-                        <video src={vidbg} autoPlay loop muted></video>
-
-                    </div>
+                    </section>
 
 
 

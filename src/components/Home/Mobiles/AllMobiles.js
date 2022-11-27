@@ -33,7 +33,10 @@ const AllMobiles = () => {
         <div className='lg:grid grid-cols-3'>
             {
 
+          
                 mobiles?.map(mobile => <DisplayMobiles key={mobile._id} setBooking={setBooking} mobile={mobile}></DisplayMobiles>)
+
+
 
             }
 
