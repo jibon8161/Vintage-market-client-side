@@ -33,7 +33,7 @@ const Advertisement = ({ adds }) => {
                         <p class="mt-1 text-sm text-gray-600 dark:text-gray-400">{adds?.details?.slice(0, 99)}</p>
                     </div>
 
-                    <img className="object-cover w-full h-48 mt-2" src={adds.purl} alt="NIKE AIR" />
+                    <img className="object-cover w-32 mx-auto h-48 mt-2" src={adds.purl} alt="NIKE AIR" />
 
                     <div class="flex items-center justify-between px-4 py-2 bg-red-700">
                         <h1 class="text-lg font-bold text-white"><span className='text-black font-extrabold text-4xl'>{adds.askingprice}</span> TAKA Only</h1>
@@ -44,7 +44,7 @@ const Advertisement = ({ adds }) => {
 
             }
 
-            {/* <BookinigModal></BookinigModal> */}
+         
 
         </div>
     );

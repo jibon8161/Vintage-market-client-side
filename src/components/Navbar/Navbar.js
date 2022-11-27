@@ -19,7 +19,7 @@ export const Navbar = () => {
     }
 
     return (
-        <div className="bg-gradient-to-r from-purple-400 to-purple-700 shadow-2xl sticky top-0 z-50 ">
+        <div className="bg-gradient-to-r from-purple-400 to-purple-700 shadow-2xl shadow-slate-900 sticky top-0 z-50 ">
             <div className="px-4 py-5 mx-auto sm:max-w-xl md:max-w-full lg:max-w-screen-xl md:px-24 lg:px-8">
                 <div className="relative flex items-center justify-between">
                     <div className="flex items-center">
