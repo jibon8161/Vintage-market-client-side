@@ -66,6 +66,11 @@ const MyProducts = () => {
 
 
             method: "PUT",
+            headers: {
+
+                authorization: `Bearer ${localStorage.getItem('token')}`
+
+            }
 
 
 

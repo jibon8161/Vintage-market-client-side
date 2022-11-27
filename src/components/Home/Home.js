@@ -19,7 +19,18 @@ const Home = () => {
 
 
         queryKey: ['categoryname'],
-        queryFn: () => fetch('http://localhost:5000/categoryname')
+        queryFn: () => fetch('http://localhost:5000/categoryname', {
+
+
+            headers: {
+
+                authorization: `Bearer ${localStorage.getItem('token')}`
+
+            }
+
+
+
+        })
             .then(res => res.json())
 
 
@@ -94,8 +105,13 @@ const Home = () => {
 
             </div>
 
-            <h1 className='text-center mt-8 text-5xl font-bold uppercase underline mb-5 mx-auto'><span className='text-purple-500'> Our</span> Hot Products</h1>
-            <div className='lg:ml-5 mt-5 lg:grid grid-cols-3 container mx-auto '>
+
+
+
+            {/* <h1 className='text-center mt-8 text-5xl font-bold uppercase underline mb-5 mx-auto'><span className='text-purple-500'> Our</span> Hot Products</h1> */}
+
+
+            <div className='lg:ml-5 mt-8 lg:grid grid-cols-3 container mx-auto  '>
                 {
 
                     advertiseproduct?.map(adds => <Advertisement key={adds._id} adds={adds}></Advertisement>)

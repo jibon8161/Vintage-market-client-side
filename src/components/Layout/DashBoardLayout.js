@@ -83,7 +83,7 @@ const DashBoardLayout = () => {
                                     users?.[0]?.role === 'user' &&
                                     <>
                                         <li><Link to='/dashboard/user'>My orders</Link></li>
-                                        <li><Link to='/dashboard/wishlist'>My WishList</Link></li>
+
                                     </>
 
                                 }
@@ -98,6 +98,7 @@ const DashBoardLayout = () => {
                                     <>
                                         <li><Link to='/dashboard/allsellers'>All Sellers </Link></li>
                                         <li><Link to='/dashboard/allbuyers'>All Buyers  </Link></li>
+                                        <li><Link to='/dashboard/reported'>Reported Items </Link></li>
                                     </>
 
                                 }

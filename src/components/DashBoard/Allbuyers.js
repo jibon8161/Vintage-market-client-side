@@ -45,7 +45,7 @@ const Allbuyers = () => {
                     console.log(data)
                     if (data.deletedCount > 0) {
 
-                        toast.error('deleted successfully')
+                        toast.success('deleted successfully')
                         refetch()
 
                     }
