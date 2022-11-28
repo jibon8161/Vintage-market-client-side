@@ -108,7 +108,7 @@ const Home = () => {
 
 
 
-            {/* <h1 className='text-center mt-8 text-5xl font-bold uppercase underline mb-5 mx-auto'><span className='text-purple-500'> Our</span> Hot Products</h1> */}
+            
 
 
             <div className='lg:ml-5 ml-4 mt-8 grid lg:grid-cols-3 container mx-auto  md:grid-cols-2'>

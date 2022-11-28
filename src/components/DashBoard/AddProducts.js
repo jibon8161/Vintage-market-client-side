@@ -197,7 +197,7 @@ const AddProducts = () => {
                                 </div>
                                 <div className="form-control">
                                     <label className="label">
-                                        <span className="label-text">how many years have you using this product?</span>
+                                        <span className="label-text">Your purchase year?</span>
                                     </label>
                                     <input type="text" placeholder="purchase year" name='usagetime' className="input input-bordered shadow-inner  shadow-zinc-600 hover:bg-orange-200" required />
                                 </div>

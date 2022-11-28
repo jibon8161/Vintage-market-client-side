@@ -46,7 +46,7 @@ const DisplayMobiles = ({ mobile, setBooking }) => {
 
                 !mobile.status &&
 
-                < div className=" flex flex-col max-w-lg p-6 space-y-6 overflow-hidden rounded-lg shadow-2xl shadow-slate-800 dark:bg-gray-900 dark:text-gray-100 mb-32 ">
+                < div className=" flex flex-col max-w-lg p-6 space-y-6 overflow-hidden rounded-3xl shadow-2xl shadow-slate-800 dark:bg-gray-900 dark:text-gray-100 mb-32 ">
                     <div className="flex space-x-4">
                         {
 
@@ -64,7 +64,7 @@ const DisplayMobiles = ({ mobile, setBooking }) => {
                         </div>
                     </div>
                     <div>
-                        <img src={mobile.purl} alt="" className="object-cover w-full mb-4 h-60 sm:h-96 dark:bg-gray-500" />
+                        <img src={mobile.purl} alt="" className="object-cover w-48 mx-auto mb-4 h-60 sm:h-96 dark:bg-gray-500" />
                         <h2 className="mb-1 text-xl font-semibold">{mobile?.pname}</h2>
                         <p className="text-sm dark:text-gray-400 font-semibold">Details: {mobile?.details.slice(0, 68)}</p>
                         <p className="text-sm dark:text-gray-400"><span className="font-bold">Resale Price </span>: {mobile?.askingprice} taka</p>
