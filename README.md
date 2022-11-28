@@ -59,7 +59,9 @@ VINTAGE RESALE MARKET is mobile-ready,user Friendly and also very secure.
 
 ## PASSWORD
 
-- user : user@test.com => pass:123456
-- seller: seller@test.com => pass:123456
-- admin : admin@admin.com=> pass:123456
+
+- EMAIL : admin@admin.com
+- PASSWORD : 123456
+
+
 
