@@ -30,7 +30,7 @@ const AllMobiles = () => {
 
 
     return (
-        <div className='lg:grid grid-cols-3'>
+        <div className='lg:grid grid-cols-3 '>
             {
 
           
