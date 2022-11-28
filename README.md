@@ -52,3 +52,14 @@ VINTAGE RESALE MARKET is mobile-ready,user Friendly and also very secure.
 - I use JWT token for advertise,categories and allbuyers so no one can access your personal information.
 - It has a Blog Section, here you can find most commonly ask questions.
 - This site has  Private routes for better security...
+
+
+
+
+
+## PASSWORD
+
+- user : user@test.com => pass:123456
+- seller: seller@test.com => pass:123456
+- admin : admin@admin.com=> pass:123456
+

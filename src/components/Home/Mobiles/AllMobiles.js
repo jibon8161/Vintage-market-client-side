@@ -30,10 +30,10 @@ const AllMobiles = () => {
 
 
     return (
-        <div className='lg:grid grid-cols-3 '>
+        <div className='lg:grid grid-cols-2 md:grid md:grid-cols-2 '>
             {
 
-          
+
                 mobiles?.map(mobile => <DisplayMobiles key={mobile._id} setBooking={setBooking} mobile={mobile}></DisplayMobiles>)
 
 

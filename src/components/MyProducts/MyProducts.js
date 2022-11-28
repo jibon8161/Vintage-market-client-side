@@ -85,9 +85,10 @@ const MyProducts = () => {
 
 
                 }
+
                 else {
 
-                    toast.error('already advertised')
+                    toast.error('something went wrong/already advertised')
 
 
                 }

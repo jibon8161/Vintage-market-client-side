@@ -71,7 +71,7 @@ const DashBoard = () => {
                     <tbody>
                         {
 
-                            mybooking.map((booking, index) =>
+                            mybooking?.map((booking, index) =>
                                 <tr key={index} className="border-b border-opacity-20 dark:border-gray-700 dark:bg-gray-900 mt-5 font-semibold">
                                     <th>{index + 1}</th>
                                     <td><div className="avatar">

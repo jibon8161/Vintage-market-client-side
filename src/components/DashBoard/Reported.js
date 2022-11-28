@@ -45,7 +45,7 @@ const Reported = () => {
 
             {
 
-                reported.map((report, index) => <ShowReported key={report._id} index={index} report={report} refetch={refetch}></ShowReported>)
+                reported?.map((report, index) => <ShowReported key={report._id} index={index} report={report} refetch={refetch}></ShowReported>)
 
 
             }

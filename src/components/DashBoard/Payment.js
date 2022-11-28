@@ -27,7 +27,7 @@ const Payment = () => {
 
 
 
-            <div className='w-full my-12 mx-auto p-20 shadow-inner shadow-slate-900 '>
+            <div className='w-full md:my-12 mx-auto md:p-20 shadow-inner shadow-slate-900 '>
                 <Elements stripe={stripePromise}>
                     <CheckoutForm
                         payment={data}

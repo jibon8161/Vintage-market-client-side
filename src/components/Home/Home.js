@@ -111,7 +111,7 @@ const Home = () => {
             {/* <h1 className='text-center mt-8 text-5xl font-bold uppercase underline mb-5 mx-auto'><span className='text-purple-500'> Our</span> Hot Products</h1> */}
 
 
-            <div className='lg:ml-5 ml-4 mt-8 lg:grid grid-cols-3 container mx-auto'>
+            <div className='lg:ml-5 ml-4 mt-8 grid lg:grid-cols-3 container mx-auto  md:grid-cols-2'>
                 {
 
                     advertiseproduct?.map(adds => <Advertisement key={adds._id} adds={adds}></Advertisement>)
@@ -122,12 +122,12 @@ const Home = () => {
             </div>
 
             <h1 className='text-center mt-8 text-5xl font-bold uppercase underline'><span className='text-purple-500'>Select </span>Your Category</h1>
-            <div className='lg:grid grid-cols-3 container mx-auto mt-8 lg:ml-8'>
+            <div className='grid lg:grid-cols-3 md:grid-cols-2 container mx-auto mt-8 lg:ml-8'>
 
                 {
 
 
-                    categorynames.map(category => <Mobiles key={category._id} category={category}></Mobiles>)
+                    categorynames?.map(category => <Mobiles key={category._id} category={category}></Mobiles>)
 
 
                 }
