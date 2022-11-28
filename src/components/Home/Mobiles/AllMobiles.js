@@ -14,7 +14,7 @@ const AllMobiles = () => {
     useEffect(() => {
 
 
-        fetch(`http://localhost:5000/category?category=${id}`)
+        fetch(`https://vintage-resale-market-server.vercel.app/category?category=${id}`)
             .then(res => res.json())
             .then(data => setMobiles(data))
 

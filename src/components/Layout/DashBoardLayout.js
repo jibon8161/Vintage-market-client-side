@@ -20,7 +20,7 @@ const DashBoardLayout = () => {
 
         if (user) {
 
-            fetch(`http://localhost:5000/usersByemail?email=${user?.email}`, {
+            fetch(`https://vintage-resale-market-server.vercel.app/usersByemail?email=${user?.email}`, {
 
 
                 headers: {

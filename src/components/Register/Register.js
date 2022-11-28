@@ -36,7 +36,7 @@ const Register = () => {
                 }
 
 
-                fetch('http://localhost:5000/jwt', {
+                fetch('https://vintage-resale-market-server.vercel.app/jwt', {
 
 
                     method: "POST",
@@ -83,7 +83,7 @@ const Register = () => {
 
                 }
 
-                fetch('http://localhost:5000/users', {
+                fetch('https://vintage-resale-market-server.vercel.app/users', {
 
 
                     method: "POST",
@@ -129,7 +129,7 @@ const Register = () => {
 
             {
                 loader ?
-                <div className="w-32 h-32 border-4 border-dashed rounded-full animate-spin mx-auto mt-32 mb-32 border-red-600"></div>
+                    <div className="w-32 h-32 border-4 border-dashed rounded-full animate-spin mx-auto mt-32 mb-32 border-red-600"></div>
                     :
                     <div className=''>
                         <div className="hero lg:mb-20 mb-32 ">

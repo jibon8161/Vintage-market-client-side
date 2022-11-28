@@ -12,10 +12,10 @@ const ShowReported = ({ report, index }) => {
         if (proceed) {
 
 
-            fetch(`http://localhost:5000/delproduct/${id}`, {
+            fetch(`https://vintage-resale-market-server.vercel.app/delproduct/${id}`, {
 
                 method: 'DELETE',
-                
+
 
             })
 
@@ -41,13 +41,13 @@ const ShowReported = ({ report, index }) => {
 
     return (
         <div>
-            
+
             {
 
                 report.reported &&
 
                 <div className="container p-5 mx-auto sm:p-4 dark:text-gray-100 ">
-                   
+
                     <div className="overflow-x-auto">
                         <table className="min-w-full text-xs">
 

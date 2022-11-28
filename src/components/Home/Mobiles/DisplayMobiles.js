@@ -12,7 +12,7 @@ const DisplayMobiles = ({ mobile, setBooking }) => {
 
 
 
-        fetch(`http://localhost:5000/reported/${id}`, {
+        fetch(`https://vintage-resale-market-server.vercel.app/reported/${id}`, {
 
 
             method: "PUT",

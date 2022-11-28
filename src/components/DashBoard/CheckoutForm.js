@@ -15,7 +15,7 @@ const CheckoutForm = ({ payment }) => {
 
     useEffect(() => {
         // Create PaymentIntent as soon as the page loads
-        fetch("http://localhost:5000/create-payment-intent", {
+        fetch("https://vintage-resale-market-server.vercel.app/create-payment-intent", {
             method: "POST",
             headers: {
 
@@ -106,7 +106,7 @@ const CheckoutForm = ({ payment }) => {
 
         }
 
-        fetch('http://localhost:5000/payments', {
+        fetch('https://vintage-resale-market-server.vercel.app/payments', {
 
 
 
@@ -153,7 +153,7 @@ const CheckoutForm = ({ payment }) => {
 
         console.log(id)
 
-        fetch(`http://localhost:5000/paid/${id}`, {
+        fetch(`https://vintage-resale-market-server.vercel.app/paid/${id}`, {
 
 
             method: "PUT",
@@ -187,8 +187,8 @@ const CheckoutForm = ({ payment }) => {
                                     fontSize: '16px',
                                     color: '#424770',
                                     '::placeholder': {
-                                        color: '#aab7c4',       
-                                        
+                                        color: '#aab7c4',
+
                                     },
                                 },
                                 invalid: {

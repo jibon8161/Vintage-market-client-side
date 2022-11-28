@@ -14,7 +14,7 @@ const MyProducts = () => {
 
 
         queryKey: ['email'],
-        queryFn: () => fetch(`http://localhost:5000/myproduct?email=${user.email}`)
+        queryFn: () => fetch(`https://vintage-resale-market-server.vercel.app/myproduct?email=${user.email}`)
             .then(res => res.json())
 
 
@@ -32,7 +32,7 @@ const MyProducts = () => {
         if (proceed) {
 
 
-            fetch(`http://localhost:5000/delproduct/${id}`, {
+            fetch(`https://vintage-resale-market-server.vercel.app/delproduct/${id}`, {
 
                 method: 'DELETE',
 
@@ -62,7 +62,7 @@ const MyProducts = () => {
     const advertise = product => {
 
         console.log(product)
-        fetch(`http://localhost:5000/advertise/${product}`, {
+        fetch(`https://vintage-resale-market-server.vercel.app/advertise/${product}`, {
 
 
             method: "PUT",

@@ -19,7 +19,7 @@ const Home = () => {
 
 
         queryKey: ['categoryname'],
-        queryFn: () => fetch('http://localhost:5000/categoryname', {
+        queryFn: () => fetch('https://vintage-resale-market-server.vercel.app/categoryname', {
 
 
             headers: {
@@ -43,7 +43,7 @@ const Home = () => {
     useEffect(() => {
 
 
-        axios.get(`http://localhost:5000/allproducts`, {
+        axios.get(`https://vintage-resale-market-server.vercel.app/allproducts`, {
 
 
             headers: {
@@ -108,7 +108,7 @@ const Home = () => {
 
 
 
-            
+
 
 
             <div className='lg:ml-5 ml-4 mt-8 grid lg:grid-cols-3 container mx-auto  md:grid-cols-2'>

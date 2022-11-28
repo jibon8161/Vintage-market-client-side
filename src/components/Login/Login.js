@@ -42,7 +42,7 @@ const Login = () => {
                 }
 
 
-                fetch('http://localhost:5000/jwt', {
+                fetch('https://vintage-resale-market-server.vercel.app/jwt', {
 
 
                     method: "POST",
@@ -126,7 +126,7 @@ const Login = () => {
 
 
                 }
-                fetch('http://localhost:5000/jwt', {
+                fetch('https://vintage-resale-market-server.vercel.app/jwt', {
 
 
                     method: "POST",
@@ -167,7 +167,7 @@ const Login = () => {
 
                 }
 
-                fetch('http://localhost:5000/users', {
+                fetch('https://vintage-resale-market-server.vercel.app/users', {
 
 
                     method: "POST",

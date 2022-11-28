@@ -37,7 +37,7 @@ const BookinigModal = ({ mobile }) => {
         }
         console.log(booking)
 
-        fetch('http://localhost:5000/booking', {
+        fetch('https://vintage-resale-market-server.vercel.app/booking', {
 
 
             method: "POST",
@@ -67,7 +67,7 @@ const BookinigModal = ({ mobile }) => {
 
     return (
         <div>
-           
+
             <input type="checkbox" id="mobilebooking" className="modal-toggle" />
             <div className="modal">
                 <div className="modal-box relative">

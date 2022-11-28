@@ -1,7 +1,7 @@
 # VINTAGE RESALE MARKET
 ## _Second hand mobile market._
 
-[Live Link](https://memorable-journeys-be5a9.web.app/)
+[Live Link](https://vintage-resale-market.web.app/)
 
 VINTAGE RESALE MARKET is mobile-ready,user Friendly and also very secure. 
 

@@ -12,7 +12,7 @@ const Reported = () => {
 
 
         queryKey: ['allproducts'],
-        queryFn: () => fetch(`http://localhost:5000/allproducts`, {
+        queryFn: () => fetch(`https://vintage-resale-market-server.vercel.app/allproducts`, {
 
             headers: {
 

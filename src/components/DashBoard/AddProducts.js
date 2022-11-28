@@ -17,7 +17,7 @@ const AddProducts = () => {
     useEffect(() => {
 
 
-        axios.get(`http://localhost:5000/usersByemail?email=${user.email}`, {
+        axios.get(`https://vintage-resale-market-server.vercel.app/usersByemail?email=${user.email}`, {
 
 
             headers: {
@@ -87,7 +87,7 @@ const AddProducts = () => {
 
 
 
-        fetch('http://localhost:5000/products', {
+        fetch('https://vintage-resale-market-server.vercel.app/products', {
 
 
             method: "POST",
@@ -226,7 +226,7 @@ const AddProducts = () => {
 
 
                                 <div className="form-control mt-6">
-                                    <button className="btn btn-primary">Book Now</button>
+                                    <button className="btn btn-primary">SUBMIT</button>
                                 </div>
                             </form>
 

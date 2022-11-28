@@ -12,8 +12,8 @@ const Allsellers = () => {
     const { data: sellers = [], isLoading, refetch } = useQuery({
 
 
-        queryKey: ['email','seller'],
-        queryFn: () => fetch('http://localhost:5000/sellers?role=seller')
+        queryKey: ['email', 'seller'],
+        queryFn: () => fetch('https://vintage-resale-market-server.vercel.app/sellers?role=seller')
             .then(res => res.json())
 
 
@@ -31,7 +31,7 @@ const Allsellers = () => {
         if (proceed) {
 
 
-            fetch(`http://localhost:5000/deluser/${id}`, {
+            fetch(`https://vintage-resale-market-server.vercel.app/deluser/${id}`, {
 
                 method: 'DELETE',
 
@@ -60,7 +60,7 @@ const Allsellers = () => {
 
 
         console.log(id)
-        fetch(`http://localhost:5000/verify/${id}`, {
+        fetch(`https://vintage-resale-market-server.vercel.app/verify/${id}`, {
 
 
             method: "PUT",

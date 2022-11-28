@@ -11,7 +11,7 @@ const DashBoard = () => {
 
 
         queryKey: ['email'],
-        queryFn: () => fetch(`http://localhost:5000/bookings?email=${user.email}`, {
+        queryFn: () => fetch(`https://vintage-resale-market-server.vercel.app/bookings?email=${user.email}`, {
 
 
 
