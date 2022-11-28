@@ -54,12 +54,12 @@ export const router = createBrowserRouter([
 
 
             },
-            {
+            // {
 
-                path: '/myproduct',
-                element: <PrivateRoute><MyProducts></MyProducts></PrivateRoute>
+            //     path: '/myproduct',
+            //     element: <PrivateRoute><MyProducts></MyProducts></PrivateRoute>
 
-            },
+            // },
 
         ]
 
@@ -99,6 +99,12 @@ export const router = createBrowserRouter([
 
                 path: '/dashboard/reported',
                 element: <Reported></Reported>
+
+            },
+            {
+
+                path: '/dashboard/myproduct',
+                element: <PrivateRoute><MyProducts></MyProducts></PrivateRoute>
 
             },
             {

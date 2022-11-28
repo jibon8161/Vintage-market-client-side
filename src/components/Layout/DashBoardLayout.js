@@ -90,7 +90,10 @@ const DashBoardLayout = () => {
 
                                 {
                                     users?.[0]?.role === 'seller' &&
-                                    <li><Link to='/dashboard/addproducts'>Add A product </Link></li>
+                                    <>
+                                        <li><Link to='/dashboard/addproducts'>Add A product </Link></li>
+                                        <li><Link to='/dashboard/myproduct'>My Products </Link></li>
+                                    </>
 
                                 }
                                 {

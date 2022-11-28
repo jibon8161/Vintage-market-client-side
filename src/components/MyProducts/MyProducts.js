@@ -44,7 +44,7 @@ const MyProducts = () => {
                     console.log(data)
                     if (data.deletedCount > 0) {
 
-                        toast.error('deleted successfully')
+                        toast.success('deleted successfully')
                         refetch()
 
                     }
@@ -82,6 +82,12 @@ const MyProducts = () => {
                 if (data.modifiedCount > 0) {
 
                     toast.success('Advertise Success')
+
+
+                }
+                else {
+
+                    toast.error('already advertised')
 
 
                 }

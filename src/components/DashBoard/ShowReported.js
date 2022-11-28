@@ -41,13 +41,14 @@ const ShowReported = ({ report, index }) => {
 
     return (
         <div>
+            
             {
 
                 report.reported &&
 
-                <div className="container p-5 mx-auto sm:p-4 dark:text-gray-100 mb-8 ">
-                    <h2 className="mb-4 text-2xl font-semibold leading-tight">Reported items</h2>
-                    <div className="overflow-x-auto mb-5">
+                <div className="container p-5 mx-auto sm:p-4 dark:text-gray-100 ">
+                   
+                    <div className="overflow-x-auto">
                         <table className="min-w-full text-xs">
 
                             <thead className="dark:bg-gray-700">

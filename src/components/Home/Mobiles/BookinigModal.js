@@ -67,11 +67,13 @@ const BookinigModal = ({ mobile }) => {
 
     return (
         <div>
+           
             <input type="checkbox" id="mobilebooking" className="modal-toggle" />
             <div className="modal">
                 <div className="modal-box relative">
                     <label htmlFor="mobilebooking" className="btn btn-sm btn-circle absolute right-2 top-2">✕</label>
                     <form onSubmit={handleBooking} className="card-body">
+                        <p className='text-2xl uppercase font-bold text-purple-600'>{mobile?.pname}</p>
                         <div className="form-control">
                             <label className="label">
                                 <span className="label-text">User Name</span>

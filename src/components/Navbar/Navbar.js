@@ -168,7 +168,7 @@ export const Navbar = () => {
                                                     <rect x="14" y="11" width="7" height="12" />
                                                 </svg>
                                                 <span className="ml-2 text-xl font-bold tracking-wide text-gray-800 uppercase">
-                                                VINTAGE RESALE MARKET
+                                                    VINTAGE RESALE MARKET
                                                 </span>
                                             </NavLink>
                                         </div>
@@ -197,7 +197,7 @@ export const Navbar = () => {
                                                     title="Our product"
                                                     className="font-medium tracking-wide text-gray-700 transition-colors duration-200 hover:text-deep-purple-accent-400"
                                                 >
-                                                   Home
+                                                    Home
                                                 </NavLink>
                                             </li>
                                             <li>
@@ -207,7 +207,7 @@ export const Navbar = () => {
                                                     title="Our product"
                                                     className="font-medium tracking-wide text-gray-700 transition-colors duration-200 hover:text-deep-purple-accent-400"
                                                 >
-                                                   Blog
+                                                    Blog
                                                 </NavLink>
                                             </li>
 
@@ -242,7 +242,7 @@ export const Navbar = () => {
                                                     <li>
                                                         <NavLink
                                                             to="/register"
-                                                            className="inline-flex items-center justify-center h-12 px-6 font-medium tracking-wide text-white transition duration-200 rounded shadow-md bg-deep-purple-accent-400 hover:bg-deep-purple-accent-700 focus:shadow-outline focus:outline-none"
+                                                            className="inline-flex items-center justify-center h-12 px-6 font-medium tracking-wide text-black transition duration-200 rounded shadow-md bg-deep-purple-accent-400 hover:bg-deep-purple-accent-700 focus:shadow-outline focus:outline-none"
                                                             aria-label="Sign up"
                                                             title="Sign up"
                                                         >

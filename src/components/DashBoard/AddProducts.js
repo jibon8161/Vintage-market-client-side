@@ -114,7 +114,7 @@ const AddProducts = () => {
                     console.log(data)
                     form.reset()
                     toast.success('product added')
-                    navigate('/myproduct')
+                    navigate('/dashboard/myproduct')
 
 
 
@@ -138,7 +138,7 @@ const AddProducts = () => {
 
     return (
         <div className='overflow-x-hidden'>
-            <div className='lg:mb-0 mb-24 '>
+            <div className='lg:mb-0 mb-32 '>
                 <div className="hero">
                     <div className="hero-content flex-col lg:flex-row-reverse">
                         <div className="text-center lg:text-left">

@@ -41,7 +41,7 @@ const Reported = () => {
     console.log(reported)
     return (
         <div>
-
+            <h2 className="mb-4 text-2xl font-semibold leading-tight">Reported items</h2>
 
             {
 

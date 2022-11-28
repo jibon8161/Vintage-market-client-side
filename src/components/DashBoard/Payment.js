@@ -18,17 +18,16 @@ const Payment = () => {
 
     if (navigation.state === 'loading') {
 
-        return <div className="w-32 h-32 border-4 border-dashed rounded-full animate-spin mx-auto mt-32 mb-32 border-red-600"></div> 
+        return <div className="w-32 h-32 border-4 border-dashed rounded-full animate-spin mx-auto mt-32 mb-32 border-red-600"></div>
 
     }
     return (
-        <div>
-            <h1>Are you sure you want to payment for  {data.productname} ?</h1>
-            <h1>please pay {data.productprice} taka</h1>
-            <h1>{data.productid
-            }</h1>
+        <div className='mt-12'>
+            <h1 className='text-5xl uppercase '>You are  paying  for  <span className='text-purple-700 font-bold'>{data.productname}</span> it will cost <span className='text-purple-700 font-bold'> {data.productprice} </span> taka only</h1>
 
-            <div className='w-96 my-12'>
+
+
+            <div className='w-full my-12 mx-auto p-20 shadow-inner shadow-slate-900 '>
                 <Elements stripe={stripePromise}>
                     <CheckoutForm
                         payment={data}
